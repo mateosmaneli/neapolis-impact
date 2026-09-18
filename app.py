@@ -15,7 +15,7 @@ html,body,[class*="css"]{font-family:Inter,sans-serif}.block-container{max-width
 .badge{display:inline-block;padding:6px 10px;border-radius:999px;background:#FFF1C9;color:#8A4A06;font-size:10px;font-weight:800;letter-spacing:.06em}.eyebrow{font-size:10px;letter-spacing:.19em;text-transform:uppercase;font-weight:800;color:#A7BCD3;margin-top:14px}.hero h1{font-size:38px;letter-spacing:-.045em;margin:7px 0 9px}.hero p{font-size:14px;color:#D3DEEA;max-width:1000px;margin:0;line-height:1.55}
 .kpi{background:white;border:1px solid #DFE7EF;border-radius:17px;padding:15px 16px;min-height:112px;box-shadow:0 5px 18px rgba(15,23,42,.045)}.klabel{font-size:9.5px;font-weight:800;letter-spacing:.08em;color:#69778B;text-transform:uppercase}.kvalue{font-size:27px;font-weight:800;color:#0F172A;letter-spacing:-.045em;margin-top:8px}.ksub{font-size:10.5px;color:#758398;margin-top:4px}.section{font-size:20px;font-weight:800;letter-spacing:-.025em;color:#101827;margin:17px 0 3px}.sub{font-size:11.5px;color:#6B778A;margin-bottom:12px}
 .menu-card{background:white;border:1px solid #DFE7EF;border-radius:17px;padding:17px;min-height:112px;box-shadow:0 4px 15px rgba(15,23,42,.035)}.menu-num{font-size:10px;font-weight:800;color:#0E7490;letter-spacing:.08em}.menu-title{font-size:15px;font-weight:800;color:#111827;margin:5px 0}.menu-copy{font-size:11px;color:#66758A;line-height:1.45}.accent-card{background:#0B1B2F;border:1px solid #183653;color:white;border-radius:18px;padding:18px;min-height:125px}.accent-card .menu-num{color:#67E8F9}.accent-card .menu-title{color:white}.accent-card .menu-copy{color:#BDD0E4}
-.callout{background:#ECF5FF;border:1px solid #D3E8FF;color:#1E4F86;border-radius:14px;padding:13px 16px;font-size:12px;margin:9px 0 14px}.method{background:#0D1B2D;color:#D8E5F3;border-radius:17px;padding:18px 20px;font-size:11.5px;line-height:1.7}.method b{color:white}.traffic{background:white;border:1px solid #DFE7EF;border-radius:20px;padding:20px;text-align:center;box-shadow:0 8px 28px rgba(15,23,42,.06)}.dot{width:96px;height:96px;border-radius:50%;margin:8px auto 13px;box-shadow:0 0 0 10px #F1F5F9}.risk-score{font-size:44px;font-weight:800;letter-spacing:-.06em;color:#0F172A}.risk-word{font-size:13px;font-weight:800;letter-spacing:.12em}.info-box{background:white;border:1px solid #DFE7EF;border-radius:15px;padding:13px 15px;font-size:11px;color:#59677A}.group-title{font-size:11px;font-weight:800;letter-spacing:.11em;color:#64748B;text-transform:uppercase;margin:19px 0 8px}
+.callout{background:#ECF5FF;border:1px solid #D3E8FF;color:#1E4F86;border-radius:14px;padding:13px 16px;font-size:12px;margin:9px 0 14px}.method{background:#0D1B2D;color:#D8E5F3;border-radius:17px;padding:18px 20px;font-size:11.5px;line-height:1.7}.method b{color:white}.traffic{background:white;border:1px solid #DFE7EF;border-radius:20px;padding:20px;text-align:center;box-shadow:0 8px 28px rgba(15,23,42,.06)}.home-risk{background:#0B1728;border:1px solid #1E3652;border-radius:22px;padding:22px 26px;color:white;box-shadow:0 12px 32px rgba(15,23,42,.12)}.lights{display:flex;gap:16px;align-items:center;margin:14px 0}.light{width:58px;height:58px;border-radius:50%;opacity:.22;border:5px solid rgba(255,255,255,.12)}.light.on{opacity:1;box-shadow:0 0 0 8px rgba(255,255,255,.06),0 0 28px currentColor}.risk-big{font-size:34px;font-weight:800;letter-spacing:-.04em}.risk-caption{color:#B9CBE0;font-size:12px;line-height:1.5}.nav-hint{font-size:10px;color:#64748B;margin-top:8px}.dot{width:96px;height:96px;border-radius:50%;margin:8px auto 13px;box-shadow:0 0 0 10px #F1F5F9}.risk-score{font-size:44px;font-weight:800;letter-spacing:-.06em;color:#0F172A}.risk-word{font-size:13px;font-weight:800;letter-spacing:.12em}.info-box{background:white;border:1px solid #DFE7EF;border-radius:15px;padding:13px 15px;font-size:11px;color:#59677A}.group-title{font-size:11px;font-weight:800;letter-spacing:.11em;color:#64748B;text-transform:uppercase;margin:19px 0 8px}
 div[data-testid="stDataFrame"]{background:white;border:1px solid #DFE7EF;border-radius:14px;padding:4px}[data-testid="stFileUploader"]{background:white;border:1px dashed #A9B8C8;border-radius:14px;padding:7px}.stExpander{background:white;border-radius:12px}
 </style>''', unsafe_allow_html=True)
 
@@ -102,8 +102,13 @@ def kpi(label,value,sub=''):
     st.markdown(f'<div class="kpi"><div class="klabel">{label}</div><div class="kvalue">{value}</div><div class="ksub">{sub}</div></div>',unsafe_allow_html=True)
 def section(title,sub=''):
     st.markdown(f'<div class="section">{title}</div><div class="sub">{sub}</div>',unsafe_allow_html=True)
-def menu_card(num,title,copy,accent=False):
-    cls='accent-card' if accent else 'menu-card'; st.markdown(f'<div class="{cls}"><div class="menu-num">{num}</div><div class="menu-title">{title}</div><div class="menu-copy">{copy}</div></div>',unsafe_allow_html=True)
+def nav_to(target):
+    st.session_state.nav=target
+
+def menu_card(num,title,copy,target,accent=False):
+    cls='accent-card' if accent else 'menu-card'
+    st.markdown(f'<div class="{cls}"><div class="menu-num">{num}</div><div class="menu-title">{title}</div><div class="menu-copy">{copy}</div><div class="nav-hint">Accés directe a la vista</div></div>',unsafe_allow_html=True)
+    st.button(f'Obrir {title}  →', key=f'go_{num}_{target}', use_container_width=True, on_click=nav_to, args=(target,))
 def info_metric(title,text):
     with st.expander(f'ⓘ {title}'): st.caption(text)
 
@@ -139,7 +144,7 @@ wp=D['WP_Derived'][D['WP_Derived'].Project_ID.isin(pids)].copy(); tasks=D['Tasks
 if startup_sel!='Totes': sd=sd[sd.Startup==startup_sel]
 if sector_sel!='Tots': sd=sd[sd.Sector==sector_sel]
 
-st.markdown(f'''<div class="hero"><span class="badge">{st.session_state.mode}</span><div class="eyebrow">Project & Impact Intelligence System</div><h1>NEÀPOLIS IMPACT</h1><p>Intel·ligència de gestió per anticipar desviacions, seguir resultats i convertir l'execució dels projectes europeus en impacte i retorn territorial mesurable.</p></div>''',unsafe_allow_html=True)
+st.markdown(f'''<div class="hero"><span class="badge">{st.session_state.mode}</span><div class="eyebrow">Project & Impact Intelligence System</div><h1>NEÀPOLIS IMPACT</h1><p>Control, anticipació i impacte en una sola vista: de l’execució del projecte a les decisions, els resultats i el retorn territorial.</p></div>''',unsafe_allow_html=True)
 
 # ---------- shared calculations ----------
 progress=float(wp.Progress.mean()) if len(wp) else 0; budget=float(wp.Spent.sum()/wp.Budget.sum()) if len(wp) and wp.Budget.sum() else 0
@@ -160,24 +165,33 @@ if page=='HOME':
     with e[1]: info_metric('Risc a 30 dies','Score 0–100 calculat pel dashboard a partir de desviació temporal, riscos oberts, documentació pendent, dependències i proximitat de fites. No és una probabilitat.')
     with e[2]: info_metric('Evidències pendents','Nombre de registres de despesa que encara no tenen l’evidència documental marcada com a completa.')
     with e[3]: info_metric('Inversió mobilitzada','Suma de la inversió registrada per les startups seleccionades. És un outcome observat i no s’interpreta automàticament com a impacte atribuïble.')
+    section('Semàfor executiu','Una alerta visible en obrir el dashboard: indica si hi ha algun Work Package que requereix intervenció prioritària.')
+    risk_color=status_color(riskmax); risk_label=status_word(riskmax)
+    on_green='on' if riskmax<40 else ''; on_orange='on' if 40<=riskmax<70 else ''; on_red='on' if riskmax>=70 else ''
+    sr1,sr2=st.columns([1.45,.55])
+    with sr1:
+        st.markdown(f'''<div class="home-risk"><div class="eyebrow">EARLY WARNING · HORITZÓ +30 DIES</div><div class="lights"><div class="light {on_green}" style="background:#22C55E;color:#22C55E"></div><div class="light {on_orange}" style="background:#F59E0B;color:#F59E0B"></div><div class="light {on_red}" style="background:#EF4444;color:#EF4444"></div></div><div class="risk-big">RISC {risk_label} · {riskmax}/100</div><div class="risk-caption">El sistema detecta el màxim risc entre els Work Packages filtrats. El score és una priorització explicable, no una probabilitat. Obre el Radar de riscos per veure causes, responsables i accions correctores.</div></div>''',unsafe_allow_html=True)
+    with sr2:
+        st.button('Obrir Radar de riscos  →',use_container_width=True,type='primary',on_click=nav_to,args=('Radar de riscos',),key='home_risk_go')
+        st.caption('Desglossa desviació temporal, riscos oberts, documentació, dependències i proximitat de fites.')
     st.markdown('<div class="callout"><b>Lectura de direcció:</b> la HOME combina execució, risc, evidència, resultats empresarials i retorn. Els filtres del menú lateral recalculen la vista sobre els projectes i startups seleccionats.</div>',unsafe_allow_html=True)
     section('Mapa del sistema','Una navegació simple: de l’execució als resultats, i dels resultats a l’impacte i la decisió.')
     st.markdown('<div class="group-title">GESTIÓ I RESULTATS</div>',unsafe_allow_html=True)
     cols=st.columns(4)
     items=[('01','Seguiment del projecte','Calendari, pressupost, tasques, fites, documentació i responsabilitats.'),('02','Activitat i lliurables','Què ha produït directament la intervenció: mentoria, tallers, pilots i connexions.'),('03','Resultats en startups','Què ha canviat: clients, pilots, facturació, ocupació, inversió i mercats.'),('04','Lectura executiva','Visió integrada dels indicadors clau per facilitar decisions de direcció.')]
     for col,it in zip(cols,items):
-        with col: menu_card(*it)
+        with col: menu_card(it[0],it[1],it[2],{'01':'Seguiment del projecte','02':'Activitat i lliurables','03':'Resultats en startups','04':'Seguiment del projecte'}[it[0]])
     with st.expander('ⓘ Què inclouen aquests quatre blocs?'): st.write('**Seguiment** controla l’execució. **Activitat i lliurables** mostra outputs. **Resultats en startups** mostra outcomes. La **lectura executiva** integra els senyals essencials per a direcció sense confondre activitat amb impacte.')
     st.markdown('<div class="group-title">VALOR PÚBLIC I TERRITORIAL</div>',unsafe_allow_html=True)
     cols=st.columns(2)
-    with cols[0]: menu_card('05','Impacte','Canvis de major abast, contribució plausible, persistència i factors externs.',True)
-    with cols[1]: menu_card('06','Retorn territorial','Economia, ocupació i talent, innovació i coneixement, i ecosistema.',True)
+    with cols[0]: menu_card('05','Impacte','Canvis de major abast, contribució plausible, persistència i factors externs.','Impacte',True)
+    with cols[1]: menu_card('06','Retorn territorial','Economia, ocupació i talent, innovació i coneixement, i ecosistema.','Retorn territorial',True)
     with st.expander('ⓘ Diferència entre impacte i retorn territorial'): st.write('**Impacte** pregunta quin canvi de major abast observem i fins a quin punt és plausible que el projecte hi hagi contribuït. **Retorn territorial** identifica quina part del valor generat queda vinculada al territori mitjançant evidències verificables.')
     st.markdown('<div class="group-title">ANTICIPACIÓ, DADES I GOVERNANÇA</div>',unsafe_allow_html=True)
     cols=st.columns(3)
-    with cols[0]: menu_card('07','Radar de riscos','Semàfor explicable, previsió a 30 dies i factors que exigeixen acció.',True)
-    with cols[1]: menu_card('08','Data Hub','Carrega Excel/CSV, enganxa taules, valida dades i exporta el model.',False)
-    with cols[2]: menu_card('09','Metodologia','Teoria del Canvi, definicions, governança de dades i criteris d’avaluació.',False)
+    with cols[0]: menu_card('07','Radar de riscos','Semàfor explicable, previsió a 30 dies i factors que exigeixen acció.','Radar de riscos',True)
+    with cols[1]: menu_card('08','Data Hub','Carrega Excel/CSV, enganxa taules, valida dades i exporta el model.','Data Hub',False)
+    with cols[2]: menu_card('09','Metodologia','Teoria del Canvi, definicions, governança de dades i criteris d’avaluació.','Metodologia',False)
     section('Prioritats ara','Els elements que demanen atenció segons les dades seleccionades.')
     priority=wp.sort_values('Risk_30d',ascending=False)[['Project_ID','WP','Name','Progress','Planned','Open_risks','Docs_pending','Days_to_next','Risk_30d','Risk_status']].head(6)
     st.dataframe(priority,hide_index=True,use_container_width=True,height=250)
