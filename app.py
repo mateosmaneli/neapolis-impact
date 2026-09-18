@@ -302,7 +302,7 @@ with tabs[1]:
     with l:
         section("Task tracker","Drill-down: PROJECT → WP → TASK")
         f=st.selectbox("Filtra Work Package",["Tots"]+wp.WP.tolist(),key="taskfilter"); tt=tasks if f=="Tots" else tasks[tasks.WP==f]
-        st.dataframe(tt,hide_index=True,use_container_width=True,height=350,column_config={"Planned":st.column_config.ProgressColumn("Planificat",0,1,format="%.0%%"),"Actual":st.column_config.ProgressColumn("Real",0,1,format="%.0%%")})
+        st.dataframe(tt,hide_index=True,use_container_width=True,height=350,column_config={"Planned":st.column_config.ProgressColumn("Planificat", min_value=0, max_value=1, format="%.0%%"),"Actual":st.column_config.ProgressColumn("Real", min_value=0, max_value=1, format="%.0%%")})
     with r:
         section("Corrective Action Log","DETECCIÓ → ALERTA → RESPONSABLE → ACCIÓ → TERMINI → VERIFICACIÓ")
         st.dataframe(alerts,hide_index=True,use_container_width=True,height=350)
@@ -372,7 +372,7 @@ with tabs[6]:
         st.markdown('<div class="method"><b>Motor predictiu demostratiu</b><br>El score combina regles transparents: desviació de calendari <b>38%</b>, riscos oberts <b>24%</b>, documentació pendent <b>18%</b>, dependències <b>10%</b> i proximitat de la fita <b>10%</b>.<br><br><b>Llindars:</b> 0–39 verd · 40–69 taronja · 70–100 vermell.<br><br><b>No és un model ML entrenat.</b> És una analítica predictiva basada en regles explicables. Amb històric suficient, es podria validar un model estadístic/ML mantenint supervisió humana.</div>',unsafe_allow_html=True)
         section("Risc actual → previsió 30 dies","Priorització per Work Package")
         risk=wp[["WP","Name","Risk_score","Risk_30d","Predicted_status","Schedule_gap","Open_risks","Docs_pending","Dependencies","Days_to_next"]]
-        st.dataframe(risk,hide_index=True,use_container_width=True,height=280,column_config={"Risk_score":st.column_config.ProgressColumn("Actual",0,100,format="%d%%"),"Risk_30d":st.column_config.ProgressColumn("+30 dies",0,100,format="%d%%")})
+        st.dataframe(risk,hide_index=True,use_container_width=True,height=280,column_config={"Risk_score":st.column_config.ProgressColumn("Actual", min_value=0, max_value=100, format="%d%%"),"Risk_30d":st.column_config.ProgressColumn("+30 dies", min_value=0, max_value=100, format="%d%%")})
     l,r=st.columns([1.2,1])
     with l:
         rr=wp[["WP","Risk_score","Risk_30d"]].melt("WP",var_name="Moment",value_name="Risk")
