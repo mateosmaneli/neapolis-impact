@@ -51,6 +51,9 @@ else:
             st.session_state.dades[_name]=_fresh[_name]
 if 'nav' not in st.session_state: st.session_state.nav='HOME'
 D=st.session_state.dades
+# Ensure the predictive history is always present after deployments, even in an already-open browser session.
+if 'Històric_projectes' not in D or D['Històric_projectes'] is None or D['Històric_projectes'].empty:
+    D['Històric_projectes']=load_demo()['Històric_projectes'].copy()
 
 def dt(df,*cols):
  d=df.copy()
@@ -70,7 +73,13 @@ def section(t,s=''): st.markdown(f'<div class="sect"><h2>{t}</h2><p>{s}</p></div
 def objective_card(title,subtitle,value,desc):
  st.markdown(f'''<div class="kpi"><div class="kt">{title}</div><div style="font-size:12px;color:#37566b;font-weight:700;margin-top:5px">{subtitle}</div><div class="kv">{value}</div><div class="kx">{desc}</div></div>''',unsafe_allow_html=True)
 def forecast(pid):
- h=D['Històric_projectes']; h=h[h.Id_projecte==pid].copy(); h['Data_observació']=pd.to_datetime(h['Data_observació']); h=h.sort_values('Data_observació').tail(24); x=np.arange(len(h)); xf=len(h)+3
+ # Robust fallback: never depend on a stale Streamlit session for the historical table.
+ h=D.get('Històric_projectes')
+ if h is None or h.empty:
+  h=load_demo().get('Històric_projectes', pd.DataFrame())
+ if h.empty:
+  return {'risc':50.0,'retard':0.0,'pressupost':0.0,'objectius':0.0}
+ h=h[h.Id_projecte==pid].copy(); h['Data_observació']=pd.to_datetime(h['Data_observació']); h=h.sort_values('Data_observació').tail(24); x=np.arange(len(h)); xf=len(h)+3
  def pred(c):
   y=pd.to_numeric(h[c],errors='coerce').fillna(method='ffill').fillna(0).values; return float(np.polyval(np.polyfit(x,y,1),xf)) if len(y)>2 else float(y[-1])
  return {'risc':np.clip(pred('Índex_risc'),0,100),'retard':max(0,pred('Retard_mitjà_dies')),'pressupost':pred('Desviació_pressupost_pct'),'objectius':np.clip(pred('Compliment_objectius_pct'),0,100)}
