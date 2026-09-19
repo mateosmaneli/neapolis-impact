@@ -97,13 +97,25 @@ def money(x):
  try:return f'{float(x):,.0f} €'.replace(',','.')
  except:return '—'
 def pct(v): return f'{100*v:.0f}%'
-def gohome(): st.session_state.nav='HOME'; st.rerun()
-def goto(x): st.session_state.nav=x; st.rerun()
-def card(title,value,desc,delta=''):
- st.markdown(f'''<div class="kpi"><div class="kt">{title}</div><div class="kv">{value}</div>{f'<div class="kd">{delta}</div>' if delta else ''}<div class="kx">{desc}</div></div>''',unsafe_allow_html=True)
+def gohome():
+ st.session_state.previous_nav=st.session_state.get('nav','HOME'); st.session_state.nav='HOME'; st.rerun()
+def goto(x):
+ st.session_state.previous_nav=st.session_state.get('nav','HOME'); st.session_state.nav=x; st.rerun()
+def goback():
+ prev=st.session_state.get('previous_nav','HOME')
+ st.session_state.previous_nav=st.session_state.get('nav','HOME'); st.session_state.nav=prev if prev!='HOME' else 'HOME'; st.rerun()
+STATUS_COLORS={'verd':'#22c55e','groc':'#f59e0b','vermell':'#ef4444','blau':'#0b77c5'}
+def card(title,value,desc,delta='',status='blau'):
+ color=STATUS_COLORS.get(status,STATUS_COLORS['blau'])
+ st.markdown(f'''<div class="kpi" style="border-top:5px solid {color}"><div class="kt">{title}</div><div class="kv">{value}</div>{f'<div class="kd">{delta}</div>' if delta else ''}<div class="kx">{desc}</div></div>''',unsafe_allow_html=True)
+def ratio_status(v,good=.8,warn=.6): return 'verd' if v>=good else ('groc' if v>=warn else 'vermell')
+def inverse_status(v,good,warn): return 'verd' if v<=good else ('groc' if v<=warn else 'vermell')
+
 def section(t,s=''): st.markdown(f'<div class="sect"><h2>{t}</h2><p>{s}</p></div>',unsafe_allow_html=True)
-def objective_card(title,subtitle,value,desc):
- st.markdown(f'''<div class="kpi"><div class="kt">{title}</div><div style="font-size:12px;color:#37566b;font-weight:700;margin-top:5px">{subtitle}</div><div class="kv">{value}</div><div class="kx">{desc}</div></div>''',unsafe_allow_html=True)
+def objective_card(title,subtitle,value,desc,status='blau'):
+ color=STATUS_COLORS.get(status,STATUS_COLORS['blau'])
+ st.markdown(f'''<div class="kpi" style="border-top:5px solid {color}"><div class="kt">{title}</div><div style="font-size:12px;color:#37566b;font-weight:700;margin-top:5px">{subtitle}</div><div class="kv">{value}</div><div class="kx">{desc}</div></div>''',unsafe_allow_html=True)
+
 def forecast(pid,horizon_days=90):
  h=D.get('Històric_projectes', pd.DataFrame()).copy()
  if h.empty:
@@ -146,7 +158,7 @@ def derive(pid,asof):
  return wp,dl,eco,r,dict(risk=risk,status=status,plan=float(wp.plan.mean()) if len(wp) else 0,real=float(wp.real.mean()) if len(wp) else 0,overdue=overdue,openr=openr,docs=docs,budget=paid/max(budget_plan,1),paid=paid,committed=committed,budget_plan=budget_plan)
 
 st.markdown('''<style>
-.stApp{background:#f4f7fb;color:#10283d}.block-container{padding-top:1.1rem;max-width:1450px}.hero{background:linear-gradient(125deg,#071b2d,#103a53 65%,#0a6672);border-radius:24px;padding:28px 34px;color:white;margin:8px 0 18px;box-shadow:0 12px 35px #0b233326}.hero h1{font-size:42px;margin:3px 0}.hero p{font-size:17px;color:#d8e8ef;margin:0}.badge{font-size:11px;font-weight:800;letter-spacing:.13em;background:#ffffff17;border:1px solid #ffffff33;padding:6px 10px;border-radius:999px}.eyebrow{font-size:11px;letter-spacing:.16em;font-weight:800;color:#74d6de;margin-top:15px}.kpi{background:white;border:1px solid #dce7ef;border-radius:18px;padding:17px 18px;min-height:145px;box-shadow:0 4px 16px #16384d0c}.kt{font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:#597286;font-weight:800}.kv{font-size:28px;font-weight:850;color:#0b2c43;margin:7px 0}.kd{font-size:12px;font-weight:800;color:#0d7b86}.kx{font-size:12px;color:#667d8d;line-height:1.35;margin-top:7px}.sect{margin:25px 0 10px}.sect h2{margin:0;color:#0b2c43;font-size:23px}.sect p{margin:4px 0;color:#6b7e8c}.risk{background:#081c2d;border-radius:20px;padding:22px;color:white;min-height:218px}.lights{display:flex;gap:11px;margin:18px 0}.light{width:32px;height:32px;border-radius:50%;opacity:.18}.on{opacity:1;box-shadow:0 0 20px currentColor}.rtitle{font-size:28px;font-weight:900}.rsub{font-size:12px;color:#bdd0dd;margin-top:8px;line-height:1.45}.projectname{font-size:18px;font-weight:850;color:#fff;margin-top:8px}.navbox{background:white;border:1px solid #dce7ef;border-radius:16px;padding:15px;margin-bottom:7px}.smallnote{font-size:12px;color:#6b7e8c}.stButton>button{border-radius:12px;font-weight:750;border:1px solid #cbdde8}.stButton>button:hover{border-color:#0a7f89;color:#0a6872}.dataframe{border-radius:14px}.call{background:#eaf7f7;border-left:4px solid #0a7f89;padding:14px 16px;border-radius:10px;color:#234a5a}
+.stApp{background:#f4f7fb;color:#10283d}.block-container{padding-top:1.1rem;max-width:1450px}.hero{background:linear-gradient(125deg,#071b2d,#103a53 65%,#0a6672);border-radius:24px;padding:28px 34px;color:white;margin:8px 0 18px;box-shadow:0 12px 35px #0b233326}.hero h1{font-size:42px;margin:3px 0}.hero p{font-size:17px;color:#d8e8ef;margin:0}.badge{font-size:11px;font-weight:800;letter-spacing:.13em;background:#ffffff17;border:1px solid #ffffff33;padding:6px 10px;border-radius:999px}.eyebrow{font-size:11px;letter-spacing:.16em;font-weight:800;color:#74d6de;margin-top:15px}.kpi{background:white;border:1px solid #dce7ef;border-radius:18px;padding:17px 18px;min-height:145px;box-shadow:0 4px 16px #16384d0c}.kt{font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:#597286;font-weight:800}.kv{font-size:28px;font-weight:850;color:#0b2c43;margin:7px 0}.kd{font-size:12px;font-weight:800;color:#0d7b86}.kx{font-size:12px;color:#667d8d;line-height:1.35;margin-top:7px}.sect{margin:25px 0 10px}.sect h2{margin:0;color:#0b2c43;font-size:23px}.sect p{margin:4px 0;color:#6b7e8c}.risk{background:#081c2d;border-radius:20px;padding:22px;color:white;min-height:218px}.lights{display:flex;gap:11px;margin:18px 0}.light{width:32px;height:32px;border-radius:50%;opacity:.18}.on{opacity:1;box-shadow:0 0 20px currentColor}.rtitle{font-size:28px;font-weight:900}.rsub{font-size:12px;color:#bdd0dd;margin-top:8px;line-height:1.45}.projectname{font-size:18px;font-weight:850;color:#fff;margin-top:8px}.navbox{background:white;border:1px solid #dce7ef;border-radius:16px;padding:15px;margin-bottom:7px}.smallnote{font-size:12px;color:#6b7e8c}.stButton>button{border-radius:12px;font-weight:750;border:1px solid #cbdde8}.stButton>button:hover{border-color:#0a7f89;color:#0a6872}.dataframe{border-radius:14px}.call{background:#eaf7f7;border-left:4px solid #0a7f89;padding:14px 16px;border-radius:10px;color:#234a5a} div[data-baseweb="slider"] div[role="slider"]{background:#0b77c5!important;border-color:#0b77c5!important} div[data-baseweb="slider"]>div>div>div{background:#0b77c5!important}
 </style>''',unsafe_allow_html=True)
 st.markdown(f'''<div class="hero"><span class="badge">{st.session_state.mode}</span><div class="eyebrow">PROJECT & IMPACT INTELLIGENCE SYSTEM</div><h1>NEÀPOLIS IMPACT</h1><p>Control, anticipació i impacte en una sola vista: de l’execució calendaritzada a les decisions, els resultats i el retorn territorial.</p></div>''',unsafe_allow_html=True)
 if st.button('⌂  Pàgina principal',use_container_width=True,key='home_top'): gohome()
@@ -184,21 +196,21 @@ if st.session_state.nav=='HOME':
    for i in range(3):
     if i<len(o):
      r=o.iloc[i]; val=f"{r.Valor_actual:g} / {r.Valor_objectiu:g}"; desc=f"{r.Indicador_clau}. Mesura l'avenç de l'objectiu {r.Id_objectiu}: {r.Objectiu}."
-     with cols[i%3]: objective_card(f'Objectiu {r.Id_objectiu}',r.Objectiu,val,f"Indicador: {r.Indicador_clau}.")
+     with cols[i%3]: objective_card(f'Objectiu {r.Id_objectiu}',r.Objectiu,val,f"Indicador: {r.Indicador_clau}.",ratio_status(float(r.Valor_actual)/max(float(r.Valor_objectiu),1)))
    cols=st.columns(3)
-   with cols[0]: card('Progrés real',pct(K['real']),"Proporció ponderada de lliurables completats fins a la data d’anàlisi.",f"Planificat {pct(K['plan'])}")
-   with cols[1]: card('Execució pressupostària',pct(K['budget']),"Import pagat respecte del pressupost planificat registrat al sistema.",money(K['paid']))
-   with cols[2]: card('Control documental',str(K['docs']),"Moviments econòmics amb factura/justificant o evidència d’activitat pendent.",'pendències')
+   with cols[0]: card('Progrés real',pct(K['real']),"Proporció ponderada de lliurables completats fins a la data d’anàlisi.",f"Planificat {pct(K['plan'])}",ratio_status(K['real']/max(K['plan'],.01),.95,.80))
+   with cols[1]: card('Execució pressupostària',pct(K['budget']),"Import pagat respecte del pressupost planificat registrat al sistema.",money(K['paid']),'verd' if .70<=K['budget']<=1.0 else ('groc' if .50<=K['budget']<=1.10 else 'vermell'))
+   with cols[2]: card('Control documental',str(K['docs']),"Moviments econòmics amb factura/justificant o evidència d’activitat pendent.",'pendències',inverse_status(K['docs'],1,5))
   else:
    s=D['Startups'][(D['Startups'].Id_projecte==pid)&(D['Startups'].Nom_startup==startup)].iloc[0]; cols=st.columns(3)
-   with cols[0]: card('Capacitats',f"{s['Índex_capacitats_actual']}/100",'Evolució de capacitats empresarials respecte de la línia de base.',f"T0 {s['Índex_capacitats_T0']}/100")
-   with cols[1]: card('Nous clients',int(s.Nous_clients),'Nous clients o oportunitats comercials atribuïdes al període de seguiment.')
-   with cols[2]: card('Inversió captada',money(s.Inversió_captada_EUR),'Capital privat mobilitzat per la startup durant el seguiment.')
+   with cols[0]: card('Capacitats',f"{s['Índex_capacitats_actual']}/100",'Evolució de capacitats empresarials respecte de la línia de base.',f"T0 {s['Índex_capacitats_T0']}/100",ratio_status(float(s['Índex_capacitats_actual'])/100,.75,.60))
+   with cols[1]: card('Nous clients',int(s.Nous_clients),'Nous clients o oportunitats comercials atribuïdes al període de seguiment.','', 'verd' if s.Nous_clients>=3 else ('groc' if s.Nous_clients>=1 else 'vermell'))
+   with cols[2]: card('Inversió captada',money(s.Inversió_captada_EUR),'Capital privat mobilitzat per la startup durant el seguiment.','', 'verd' if s.Inversió_captada_EUR>=150000 else ('groc' if s.Inversió_captada_EUR>=50000 else 'vermell'))
    cols=st.columns(3)
-   with cols[0]: card('Ocupació actual',int(s.Ocupació_actual),'Llocs de treball actuals declarats per la startup.',f"T0 {int(s.Ocupació_T0)}")
+   with cols[0]: card('Ocupació actual',int(s.Ocupació_actual),'Llocs de treball actuals declarats per la startup.',f"T0 {int(s.Ocupació_T0)}",'verd' if s.Ocupació_actual>s.Ocupació_T0 else ('groc' if s.Ocupació_actual==s.Ocupació_T0 else 'vermell'))
    with cols[1]: card('Outcome clau',s.Outcome_clau,'Canvi esperat de curt/mitjà termini vinculat a la participació de la startup.')
    with cols[2]: card('Retorn territorial',s.Retorn_territorial_clau,'Dimensió de valor local que es vol verificar i seguir.')
- section('Predicció de futur','Projecció calculada a partir de 36 mesos d’històric fictici. Selecciona l’horitzó temporal i els indicadors estimen la situació esperada al final d’aquest període.')
+ section(f'Predicció de futur · {pname}',f'Projecció del projecte seleccionat calculada a partir dels seus darrers 36 mesos d’històric fictici. Selecciona l’horitzó temporal per estimar la situació esperada al final del període.')
  horitzons={7:'7 dies',14:'14 dies',30:'1 mes',60:'2 mesos',90:'3 mesos',180:'6 mesos',365:'12 mesos',730:'24 mesos',1095:'36 mesos'}
  horizon=st.select_slider('Horitzó de predicció',options=list(horitzons.keys()),value=90,format_func=lambda x:horitzons[x])
  F=forecast(pid,horizon); pc=st.columns(4)
@@ -242,35 +254,82 @@ elif st.session_state.nav in TDC:
   elif name in ['Outputs','Outcomes','Impactes','Retorn territorial']: vals=[('Indicadors',len(df),'Indicadors monitorats.'),('Assoliment mitjà',f"{(pd.to_numeric(df.Valor_actual)/pd.to_numeric(df.Valor_objectiu).replace(0,np.nan)).mean()*100:.0f}%",'Mitjana de compliment dels targets.'),('Sota 80% target',int(((pd.to_numeric(df.Valor_actual)/pd.to_numeric(df.Valor_objectiu).replace(0,np.nan))<.8).sum()),'Indicadors que requereixen atenció.'),('Actualitzats',int(df['Data_mesura'].notna().sum()) if 'Data_mesura' in df else len(df),'Indicadors amb mesura registrada.')]
   else: vals=[('Hipòtesis',len(df),'Condicions causals monitorades.'),('Criticitat alta',int(df.Criticitat.astype(str).str.contains('Alta',case=False).sum()),'Hipòtesis crítiques.'),('Risc alt',int(((pd.to_numeric(df.Probabilitat_1_5)*pd.to_numeric(df.Impacte_1_5))>=16).sum()),'Probabilitat × impacte ≥16.'),('Verificades',int(df.Estat.astype(str).str.contains('verif|compl',case=False,regex=True).sum()),'Hipòtesis verificades/complertes.')]
   for i,(a,b,c) in enumerate(vals):
-   with kc[i]: card(a,b,c)
+   status='blau'
+   if name=='Inputs':
+    status = ('verd' if i in [0,1,2] and float(b if isinstance(b,(int,float)) else 0)>0 else ('verd' if i==3 and str(b).startswith('100') else 'groc'))
+   elif name=='Activitats': status = 'verd' if (i==1 and float(str(b).replace('%',''))>=80) or (i==3 and float(b)>0) else ('groc' if i in [0,2] else 'vermell')
+   elif name in ['Outputs','Outcomes','Impactes','Retorn territorial']:
+    status = 'verd' if i in [0,3] else ('verd' if i==1 and float(str(b).replace('%',''))>=80 else ('groc' if i==1 else ('verd' if float(b)==0 else 'groc')))
+   elif name=='Hipòtesis': status = 'verd' if i==3 and float(b)>0 else ('vermell' if i in [1,2] and float(b)>0 else 'groc')
+   with kc[i]: card(a,b,c,status=status)
 
  if startup!='Totes':
   s=D['Startups'][(D['Startups'].Id_projecte==pid)&(D['Startups'].Nom_startup==startup)].iloc[0]
   field={'Inputs':'Input_clau','Outputs':'Output_clau','Outcomes':'Outcome_clau','Impactes':'Impacte_clau','Hipòtesis':'Hipòtesi_clau','Retorn territorial':'Retorn_territorial_clau'}.get(name)
   if field: st.markdown(f'<div class="call"><b>{startup}</b><br>{s[field]}</div>',unsafe_allow_html=True)
- if name in ['Outputs','Outcomes','Impactes','Retorn territorial'] and len(df):
+ if name in ['Outputs','Impactes'] and len(df):
   val='Valor_actual'; tar='Valor_objectiu'; label=[c for c in df.columns if c in ['Output','Outcome','Impacte','Indicador_retorn']][0]
   plot=df[[label,val,tar]].copy(); fig=go.Figure(); fig.add_trace(go.Bar(name='Actual',x=plot[label],y=plot[val])); fig.add_trace(go.Bar(name='Objectiu',x=plot[label],y=plot[tar])); fig.update_layout(barmode='group',height=390,margin=dict(l=10,r=10,t=20,b=120)); st.plotly_chart(fig,use_container_width=True)
+ elif name=='Outcomes' and len(df):
+  plot=df.copy(); plot['Assoliment_pct']=(pd.to_numeric(plot.Valor_actual,errors='coerce')/pd.to_numeric(plot.Valor_objectiu,errors='coerce').replace(0,np.nan)*100).clip(0,140)
+  plot=plot.sort_values('Assoliment_pct')
+  colors=['#ef4444' if v<60 else ('#f59e0b' if v<80 else '#22c55e') for v in plot.Assoliment_pct]
+  fig=go.Figure(go.Bar(x=plot.Assoliment_pct,y=plot.Outcome,orientation='h',marker_color=colors,text=plot.Assoliment_pct.round(0).astype(int).astype(str)+'%',textposition='outside'))
+  fig.add_vline(x=100,line_dash='dash',annotation_text='Target 100%'); fig.update_layout(height=max(360,55*len(plot)),xaxis_title='Grau d’assoliment del target (%)',margin=dict(l=10,r=45,t=30,b=35),title='Outcomes · grau d’assoliment i alertes')
+  st.plotly_chart(fig,use_container_width=True)
+ elif name=='Retorn territorial' and len(df):
+  plot=df.copy(); plot['Assoliment_pct']=(pd.to_numeric(plot.Valor_actual,errors='coerce')/pd.to_numeric(plot.Valor_objectiu,errors='coerce').replace(0,np.nan)*100).clip(0,140)
+  plot['Dimensió']=plot.get('Dimensió',plot.get('Indicador_retorn','Retorn'))
+  agg=plot.groupby('Dimensió',as_index=False).Assoliment_pct.mean().sort_values('Assoliment_pct')
+  colors=['#ef4444' if v<60 else ('#f59e0b' if v<80 else '#22c55e') for v in agg.Assoliment_pct]
+  fig=go.Figure(go.Bar(x=agg.Assoliment_pct,y=agg.Dimensió,orientation='h',marker_color=colors,text=agg.Assoliment_pct.round(0).astype(int).astype(str)+'%',textposition='outside'))
+  fig.add_vline(x=100,line_dash='dash',annotation_text='Target'); fig.update_layout(height=max(360,70*len(agg)),xaxis_title='Assoliment mitjà (%)',margin=dict(l=10,r=45,t=30,b=35),title='Retorn territorial · assoliment per dimensió')
+  st.plotly_chart(fig,use_container_width=True)
  elif name=='Inputs' and len(df):
-  fig=go.Figure(go.Bar(x=df.Quantitat,y=df.Input,orientation='h')); fig.update_layout(height=380,margin=dict(l=10,r=10,t=20,b=10)); st.plotly_chart(fig,use_container_width=True)
+  # Radar normalitzat: situa els quatre KPI d'inputs del projecte respecte del màxim de la cartera a la mateixa data.
+  portfolio=[]
+  for pp in D['Projectes'].Id_projecte:
+   di=filtered('Inputs',pp,asof)
+   fin=pd.to_numeric(di.loc[di.Tipus_input.str.contains('Finanç',case=False,na=False),'Quantitat'],errors='coerce').sum() if len(di) else 0
+   agents=pd.to_numeric(di.loc[~di.Tipus_input.str.contains('Finanç',case=False,na=False),'Quantitat'],errors='coerce').sum() if len(di) else 0
+   disp=di.Estat.astype(str).str.contains('Disponible',case=False).mean()*100 if len(di) else 0
+   portfolio.append([len(di),fin,agents,disp])
+  arr=np.array(portfolio,dtype=float); maxima=np.maximum(arr.max(axis=0),1)
+  current=np.array([vals[0][1],pd.to_numeric(df.loc[df.Tipus_input.str.contains('Finanç',case=False,na=False),'Quantitat'],errors='coerce').sum(),pd.to_numeric(df.loc[~df.Tipus_input.str.contains('Finanç',case=False,na=False),'Quantitat'],errors='coerce').sum(),df.Estat.astype(str).str.contains('Disponible',case=False).mean()*100],dtype=float)
+  norm=np.clip(current/maxima*100,0,100); cats=['Inputs actius','Finançament','Agents implicats','Disponibilitat']
+  fig=go.Figure(go.Scatterpolar(r=list(norm)+[norm[0]],theta=cats+[cats[0]],fill='toself',name=pname,hovertemplate='%{theta}: %{r:.0f}% del màxim de cartera<extra></extra>'))
+  fig.update_layout(height=390,margin=dict(l=45,r=45,t=35,b=35),polar=dict(radialaxis=dict(range=[0,100],ticksuffix='%')),showlegend=False,title='Perfil de recursos del projecte · comparació normalitzada amb la cartera')
+  st.plotly_chart(fig,use_container_width=True)
  elif name=='Activitats' and len(df):
   fig=go.Figure(); fig.add_trace(go.Bar(name='Assolit',x=df.Activitat,y=df.Valor_assolit)); fig.add_trace(go.Bar(name='Objectiu',x=df.Activitat,y=df.Valor_objectiu)); fig.update_layout(barmode='group',height=380,margin=dict(l=10,r=10,t=20,b=100)); st.plotly_chart(fig,use_container_width=True)
  elif name=='Hipòtesis' and len(df):
-  fig=go.Figure(go.Scatter(x=df.Probabilitat_1_5,y=df.Impacte_1_5,mode='markers+text',text=df.Id_hipòtesi,textposition='top center',marker_size=22)); fig.update_layout(xaxis_title='Probabilitat',yaxis_title='Impacte',xaxis_range=[0.5,5.5],yaxis_range=[0.5,5.5],height=360); st.plotly_chart(fig,use_container_width=True)
+  mat=np.zeros((5,5),dtype=int)
+  for _,r in df.iterrows():
+   try: mat[int(r.Impacte_1_5)-1,int(r.Probabilitat_1_5)-1]+=1
+   except: pass
+  fig=go.Figure(go.Heatmap(z=mat,x=[1,2,3,4,5],y=[1,2,3,4,5],text=mat,texttemplate='%{text}',colorscale=[[0,'#e8f5ee'],[.45,'#f8e7a1'],[1,'#ef4444']],showscale=False,hovertemplate='Probabilitat %{x}<br>Impacte %{y}<br>Hipòtesis: %{z}<extra></extra>'))
+  fig.update_layout(xaxis_title='Probabilitat',yaxis_title='Impacte',height=390,margin=dict(l=45,r=25,t=45,b=45),title='Mapa de criticitat de les hipòtesis (probabilitat × impacte)')
+  st.plotly_chart(fig,use_container_width=True)
  st.dataframe(df,use_container_width=True,hide_index=True)
 
 elif st.session_state.nav=='Seguiment del projecte':
  section('Seguiment del projecte','Calendari, Work Packages, lliurables, fites i tasques calculats a la data seleccionada.')
  c=st.columns(4)
- with c[0]: card('Progrés planificat',pct(K['plan']),'Percentatge ponderat que hauria d’estar completat segons calendari.')
- with c[1]: card('Progrés real',pct(K['real']),'Percentatge ponderat efectivament completat a la data d’anàlisi.')
- with c[2]: card('Lliurables vençuts',K['overdue'],'Lliurables amb data prevista superada i sense finalització registrada.')
+ with c[0]: card('Progrés planificat',pct(K['plan']),'Percentatge ponderat que hauria d’estar completat segons calendari.','', 'blau')
+ with c[1]: card('Progrés real',pct(K['real']),'Percentatge ponderat efectivament completat a la data d’anàlisi.','',ratio_status(K['real']/max(K['plan'],.01),.95,.80))
+ with c[2]: card('Lliurables vençuts',K['overdue'],'Lliurables amb data prevista superada i sense finalització registrada.','',inverse_status(K['overdue'],0,2))
  with c[3]: card('Hores planificades',int(pd.to_numeric(filtered('Tasks',pid).Hores_planificades).sum()),'Càrrega total planificada de les tasques del projecte.')
  tabs=st.tabs(['WorkPackages','Deliverables','Milestones','Tasks','Economics'])
  for tab,n in zip(tabs,['WorkPackages','Deliverables','Milestones','Tasks','Economics']):
   with tab: st.dataframe(filtered(n,pid),use_container_width=True,hide_index=True)
- section('Lectura gerencial','Desviacions de calendari i càrrega de treball per Work Package.')
- fig=go.Figure(); fig.add_trace(go.Bar(name='Planificat',x=wp.Id_WP,y=wp.plan*100)); fig.add_trace(go.Bar(name='Real',x=wp.Id_WP,y=wp.real*100)); fig.update_layout(barmode='group',height=330,yaxis_title='Progrés %'); st.plotly_chart(fig,use_container_width=True)
+ section('Lectura gerencial','Desviació de calendari, progrés real i càrrega de treball per Work Package.')
+ tasks=filtered('Tasks',pid); hours=tasks.groupby('Id_WP',as_index=False).Hores_planificades.sum() if len(tasks) else pd.DataFrame(columns=['Id_WP','Hores_planificades'])
+ view=wp[['Id_WP','plan','real','gap']].merge(hours,on='Id_WP',how='left').fillna(0); view['Desviació_pp']=(view['real']-view['plan'])*100
+ colors=['#22c55e' if x>=-3 else ('#f59e0b' if x>=-12 else '#ef4444') for x in view.Desviació_pp]
+ fig=go.Figure(); fig.add_trace(go.Bar(x=view.Id_WP,y=view.Desviació_pp,name='Desviació real vs planificat',marker_color=colors,text=view.Desviació_pp.round(0).astype(int).astype(str)+' pp',textposition='outside'))
+ fig.add_trace(go.Scatter(x=view.Id_WP,y=view.Hores_planificades,name='Hores planificades',mode='lines+markers',yaxis='y2'))
+ fig.update_layout(height=370,yaxis=dict(title='Desviació de progrés (pp)',zeroline=True),yaxis2=dict(title='Hores planificades',overlaying='y',side='right'),margin=dict(l=20,r=20,t=30,b=35),title='On es concentra la desviació i la càrrega de treball')
+ st.plotly_chart(fig,use_container_width=True)
 
 elif st.session_state.nav=='Resultats en startups':
  if pid!='P01': st.info('Aquest mòdul només aplica al Campus d’Emprenedoria Disruptiva.'); st.stop()
@@ -343,3 +402,10 @@ elif st.session_state.nav=='Metodologia':
  st.markdown('''<div class="call"><b>1. Teoria del Canvi:</b> estructura Inputs → Activitats → Outputs → Outcomes → Impactes → Retorn territorial, amb hipòtesis explícites i indicadors vinculats als objectius.<br><br><b>2. Motor temporal:</b> la data d’anàlisi reconstrueix la fotografia del projecte. El progrés es calcula a partir de lliurables ponderats i dates previstes/reals; no s’introdueix manualment.<br><br><b>3. Control operatiu:</b> integra WP, tasques, fites, lliurables, càrrega de treball, riscos, responsables, pressupost, pagaments i evidències documentals.<br><br><b>4. Early warning:</b> combina desviació de calendari, venciments, riscos oberts, documentació i pressió pressupostària per prioritzar l’atenció gerencial.<br><br><b>5. Predicció:</b> la demo incorpora 36 mesos d’històric fictici i regressions de tendència amb horitzó seleccionable entre 7 dies i 36 mesos per risc, retard, pressupost i compliment d’objectius. En producció, els models s’han de validar amb històric real, mètriques d’error, control de deriva i supervisió humana.<br><br><b>6. Finances i auditoria:</b> control d’elegibilitat, compromisos, pagaments, cofinançament, factura/justificant, evidència d’activitat i traçabilitat per WP.<br><br><b>7. Governança de dades:</b> definicions comunes, responsable de dada, periodicitat, font de verificació, baseline, target i registre de modificacions.<br><br><b>8. Escalabilitat:</b> cada projecte conserva la seva TdC i indicadors específics dins d’un model de dades comú que permet lectura de cartera.<br><br><b>9. Traçabilitat de la demo:</b> les dades públiques verificades s’identifiquen a Projectes; els valors de gestió, històrics i prediccions són ficticis i tenen finalitat demostrativa.</div>''',unsafe_allow_html=True)
  st.markdown('### Fonts públiques utilitzades')
  for _,r in D['Projectes'].iterrows(): st.markdown(f"**{r.Nom_projecte}:** {r.Font_publica}")
+
+
+# Navegació inferior disponible a totes les vistes excepte HOME.
+if st.session_state.get('nav')!='HOME':
+ st.markdown('<div style="height:22px"></div>',unsafe_allow_html=True)
+ if st.button('←  Tornar enrere',use_container_width=True,key='back_bottom'):
+  goback()
