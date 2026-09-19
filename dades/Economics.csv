@@ -1,0 +1,49 @@
+﻿Id_projecte,Nom_projecte,Id_WP,Id_moviment,Categoria_despesa,Pressupost_planificat,Import_compromès,Import_pagat,Moneda,Data_inici_elegibilitat,Data_fi_elegibilitat,Factura_o_justificant,Evidència_activitat,Elegibilitat_prevista,Nota
+P01,Campus d’Emprenedoria Disruptiu,WP1,E1.1,Personal,10800.0,10260.0,9439.2,EUR,2025-06-01,2025-07-17,1,1,A verificar segons convocatòria,Fictici
+P01,Campus d’Emprenedoria Disruptiu,WP1,E1.2,Serveis externs,6000.0,5700.0,5244.0,EUR,2025-06-01,2025-07-17,1,1,A verificar segons convocatòria,Fictici
+P01,Campus d’Emprenedoria Disruptiu,WP1,E1.3,Viatges i reunions,3600.0,3420.0,3146.4,EUR,2025-06-01,2025-07-17,1,0,A verificar segons convocatòria,Fictici
+P01,Campus d’Emprenedoria Disruptiu,WP1,E1.4,Comunicació i altres,3600.0,3420.0,3146.4,EUR,2025-06-01,2025-07-17,0,1,A verificar segons convocatòria,Fictici
+P01,Campus d’Emprenedoria Disruptiu,WP2,E2.1,Personal,13500.0,12825.0,11799.0,EUR,2025-07-17,2025-09-02,1,1,A verificar segons convocatòria,Fictici
+P01,Campus d’Emprenedoria Disruptiu,WP2,E2.2,Serveis externs,7500.0,7125.0,6555.0,EUR,2025-07-17,2025-09-02,1,1,A verificar segons convocatòria,Fictici
+P01,Campus d’Emprenedoria Disruptiu,WP2,E2.3,Viatges i reunions,4500.0,4275.0,3933.0,EUR,2025-07-17,2025-09-02,1,0,A verificar segons convocatòria,Fictici
+P01,Campus d’Emprenedoria Disruptiu,WP2,E2.4,Comunicació i altres,4500.0,4275.0,3933.0,EUR,2025-07-17,2025-09-02,0,1,A verificar segons convocatòria,Fictici
+P01,Campus d’Emprenedoria Disruptiu,WP3,E3.1,Personal,16200.0,15390.0,14158.8,EUR,2025-09-02,2025-10-18,1,1,A verificar segons convocatòria,Fictici
+P01,Campus d’Emprenedoria Disruptiu,WP3,E3.2,Serveis externs,9000.0,8550.0,7866.0,EUR,2025-09-02,2025-10-18,1,1,A verificar segons convocatòria,Fictici
+P01,Campus d’Emprenedoria Disruptiu,WP3,E3.3,Viatges i reunions,5400.0,5130.0,4719.6,EUR,2025-09-02,2025-10-18,1,0,A verificar segons convocatòria,Fictici
+P01,Campus d’Emprenedoria Disruptiu,WP3,E3.4,Comunicació i altres,5400.0,5130.0,4719.6,EUR,2025-09-02,2025-10-18,0,1,A verificar segons convocatòria,Fictici
+P01,Campus d’Emprenedoria Disruptiu,WP4,E4.1,Personal,18900.0,17955.0,16518.6,EUR,2025-10-18,2025-12-04,1,1,A verificar segons convocatòria,Fictici
+P01,Campus d’Emprenedoria Disruptiu,WP4,E4.2,Serveis externs,10500.0,9975.0,9177.0,EUR,2025-10-18,2025-12-04,1,1,A verificar segons convocatòria,Fictici
+P01,Campus d’Emprenedoria Disruptiu,WP4,E4.3,Viatges i reunions,6300.0,5985.0,5506.2,EUR,2025-10-18,2025-12-04,1,0,A verificar segons convocatòria,Fictici
+P01,Campus d’Emprenedoria Disruptiu,WP4,E4.4,Comunicació i altres,6300.0,5985.0,5506.2,EUR,2025-10-18,2025-12-04,0,1,A verificar segons convocatòria,Fictici
+P02,Network4Work,WP1,E1.1,Personal,21600.0,15120.0,11793.6,EUR,2025-11-01,2026-06-16,1,1,A verificar segons convocatòria,Fictici
+P02,Network4Work,WP1,E1.2,Serveis externs,12000.0,8400.0,6552.0,EUR,2025-11-01,2026-06-16,1,1,A verificar segons convocatòria,Fictici
+P02,Network4Work,WP1,E1.3,Viatges i reunions,7200.0,5040.0,3931.2,EUR,2025-11-01,2026-06-16,1,0,A verificar segons convocatòria,Fictici
+P02,Network4Work,WP1,E1.4,Comunicació i altres,7200.0,5040.0,3931.2,EUR,2025-11-01,2026-06-16,0,1,A verificar segons convocatòria,Fictici
+P02,Network4Work,WP2,E2.1,Personal,24300.0,17010.0,13267.8,EUR,2026-06-16,2027-01-30,1,1,A verificar segons convocatòria,Fictici
+P02,Network4Work,WP2,E2.2,Serveis externs,13500.0,9450.0,7371.0,EUR,2026-06-16,2027-01-30,1,1,A verificar segons convocatòria,Fictici
+P02,Network4Work,WP2,E2.3,Viatges i reunions,8100.0,5670.0,4422.6,EUR,2026-06-16,2027-01-30,1,0,A verificar segons convocatòria,Fictici
+P02,Network4Work,WP2,E2.4,Comunicació i altres,8100.0,5670.0,4422.6,EUR,2026-06-16,2027-01-30,0,1,A verificar segons convocatòria,Fictici
+P02,Network4Work,WP3,E3.1,Personal,27000.0,18900.0,14742.0,EUR,2027-01-30,2027-09-15,1,1,A verificar segons convocatòria,Fictici
+P02,Network4Work,WP3,E3.2,Serveis externs,15000.0,10500.0,8190.0,EUR,2027-01-30,2027-09-15,1,1,A verificar segons convocatòria,Fictici
+P02,Network4Work,WP3,E3.3,Viatges i reunions,9000.0,6300.0,4914.0,EUR,2027-01-30,2027-09-15,1,0,A verificar segons convocatòria,Fictici
+P02,Network4Work,WP3,E3.4,Comunicació i altres,9000.0,6300.0,4914.0,EUR,2027-01-30,2027-09-15,0,1,A verificar segons convocatòria,Fictici
+P02,Network4Work,WP4,E4.1,Personal,29700.0,20790.0,16216.2,EUR,2027-09-15,2028-04-30,1,1,A verificar segons convocatòria,Fictici
+P02,Network4Work,WP4,E4.2,Serveis externs,16500.0,11550.0,9009.0,EUR,2027-09-15,2028-04-30,1,1,A verificar segons convocatòria,Fictici
+P02,Network4Work,WP4,E4.3,Viatges i reunions,9900.0,6930.0,5405.4,EUR,2027-09-15,2028-04-30,1,0,A verificar segons convocatòria,Fictici
+P02,Network4Work,WP4,E4.4,Comunicació i altres,9900.0,6930.0,5405.4,EUR,2027-09-15,2028-04-30,0,1,A verificar segons convocatòria,Fictici
+P03,C4TALENT,WP1,E1.1,Personal,18900.0,17955.0,16518.6,EUR,2023-06-01,2024-01-23,1,1,A verificar segons convocatòria,Fictici
+P03,C4TALENT,WP1,E1.2,Serveis externs,10500.0,9975.0,9177.0,EUR,2023-06-01,2024-01-23,1,1,A verificar segons convocatòria,Fictici
+P03,C4TALENT,WP1,E1.3,Viatges i reunions,6300.0,5985.0,5506.2,EUR,2023-06-01,2024-01-23,1,0,A verificar segons convocatòria,Fictici
+P03,C4TALENT,WP1,E1.4,Comunicació i altres,6300.0,5985.0,5506.2,EUR,2023-06-01,2024-01-23,0,1,A verificar segons convocatòria,Fictici
+P03,C4TALENT,WP2,E2.1,Personal,21600.0,20520.0,18878.4,EUR,2024-01-23,2024-09-15,1,1,A verificar segons convocatòria,Fictici
+P03,C4TALENT,WP2,E2.2,Serveis externs,12000.0,11400.0,10488.0,EUR,2024-01-23,2024-09-15,1,1,A verificar segons convocatòria,Fictici
+P03,C4TALENT,WP2,E2.3,Viatges i reunions,7200.0,6840.0,6292.8,EUR,2024-01-23,2024-09-15,1,0,A verificar segons convocatòria,Fictici
+P03,C4TALENT,WP2,E2.4,Comunicació i altres,7200.0,6840.0,6292.8,EUR,2024-01-23,2024-09-15,0,1,A verificar segons convocatòria,Fictici
+P03,C4TALENT,WP3,E3.1,Personal,24300.0,23085.0,21238.2,EUR,2024-09-15,2025-05-09,1,1,A verificar segons convocatòria,Fictici
+P03,C4TALENT,WP3,E3.2,Serveis externs,13500.0,12825.0,11799.0,EUR,2024-09-15,2025-05-09,1,1,A verificar segons convocatòria,Fictici
+P03,C4TALENT,WP3,E3.3,Viatges i reunions,8100.0,7695.0,7079.4,EUR,2024-09-15,2025-05-09,1,0,A verificar segons convocatòria,Fictici
+P03,C4TALENT,WP3,E3.4,Comunicació i altres,8100.0,7695.0,7079.4,EUR,2024-09-15,2025-05-09,0,1,A verificar segons convocatòria,Fictici
+P03,C4TALENT,WP4,E4.1,Personal,27000.0,25650.0,23598.0,EUR,2025-05-09,2025-12-31,1,1,A verificar segons convocatòria,Fictici
+P03,C4TALENT,WP4,E4.2,Serveis externs,15000.0,14250.0,13110.0,EUR,2025-05-09,2025-12-31,1,1,A verificar segons convocatòria,Fictici
+P03,C4TALENT,WP4,E4.3,Viatges i reunions,9000.0,8550.0,7866.0,EUR,2025-05-09,2025-12-31,1,0,A verificar segons convocatòria,Fictici
+P03,C4TALENT,WP4,E4.4,Comunicació i altres,9000.0,8550.0,7866.0,EUR,2025-05-09,2025-12-31,0,1,A verificar segons convocatòria,Fictici

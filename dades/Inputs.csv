@@ -1,0 +1,16 @@
+﻿Id_projecte,Nom_projecte,Id_input,Input,Tipus_input,Proveïdor_o_origen,Quantitat,Unitat,Estat,Data_disponibilitat,Nota_traçabilitat
+P01,Campus d’Emprenedoria Disruptiu,I01,Finançament públic,Finançament,SOC / recursos locals,90000,EUR,Disponible,2025-06-01,Fictici quan no deriva de font pública
+P01,Campus d’Emprenedoria Disruptiu,I02,Equip tècnic Neàpolis i Tandenn,Recursos humans,Neàpolis / Tandenn,6,persones,Disponible,2025-06-01,Fictici quan no deriva de font pública
+P01,Campus d’Emprenedoria Disruptiu,I03,Xarxa de mentors,Mentoria,Ecosistema emprenedor,12,mentors,Disponible,2025-06-01,Fictici quan no deriva de font pública
+P01,Campus d’Emprenedoria Disruptiu,I04,Empreses i inversors,Ecosistema,Ecosistema empresarial,18,organitzacions,Disponible,2025-06-01,Fictici quan no deriva de font pública
+P01,Campus d’Emprenedoria Disruptiu,I05,Espais i infraestructura,Infraestructura,Neàpolis,1,ecosistema,Disponible,2025-06-01,Fictici quan no deriva de font pública
+P02,Network4Work,I01,Finançament URBACT IV,Finançament,UE / URBACT,538686.79,EUR UE xarxa,Disponible,2026-01-01,Fictici quan no deriva de font pública
+P02,Network4Work,I02,Socis europeus,Xarxa europea,URBACT,7,socis,Disponible,2026-01-01,Fictici quan no deriva de font pública
+P02,Network4Work,I03,URBACT Local Group,Governança local,Administració-empresa-educació-societat,18,agents,Disponible,2026-01-01,Fictici quan no deriva de font pública
+P02,Network4Work,I04,Local Employment Forum,Coneixement transferible,Nyíregyháza,1,metodologia,Disponible,2026-01-01,Fictici quan no deriva de font pública
+P02,Network4Work,I05,Ecosistema economia blava,Ecosistema,Port-empresa-formació-pesca-recerca,25,agents,Disponible,2026-01-01,Fictici quan no deriva de font pública
+P03,C4TALENT,I01,Finançament URBACT IV,Finançament,UE / URBACT,577428.45,EUR UE xarxa,Disponible,2023-06-01,Fictici quan no deriva de font pública
+P03,C4TALENT,I02,Socis europeus,Xarxa europea,URBACT,10,socis,Disponible,2023-06-01,Fictici quan no deriva de font pública
+P03,C4TALENT,I03,URBACT Local Group,Governança local,Ecosistema talent-empresa,22,agents,Disponible,2023-06-01,Fictici quan no deriva de font pública
+P03,C4TALENT,I04,"Coworking, incubació i ciutat testbed",Infraestructura,Neàpolis / ciutat,3,tipologies,Disponible,2023-06-01,Fictici quan no deriva de font pública
+P03,C4TALENT,I05,Aprenentatge transnacional,Coneixement,Xarxa C4TALENT,6,trobades,Disponible,2023-06-01,Fictici quan no deriva de font pública

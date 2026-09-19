@@ -1,0 +1,49 @@
+﻿Id_projecte,Nom_projecte,Id_WP,Id_tasca,Nom_tasca,Data_inici_prevista,Data_fi_prevista,Data_fi_real,Hores_planificades,Persones_responsables,Responsable_principal,Dependència,Estat
+P01,Campus d’Emprenedoria Disruptiu,WP1,T1.1,Tasca 1 · Gestió i governança,2025-06-03,2025-06-10,2025-06-10,55,2,Responsable WP1,,Completada
+P01,Campus d’Emprenedoria Disruptiu,WP1,T1.2,Tasca 2 · Gestió i governança,2025-06-14,2025-06-21,2025-06-22,70,2,Responsable WP1,T1.1,Completada
+P01,Campus d’Emprenedoria Disruptiu,WP1,T1.3,Tasca 3 · Gestió i governança,2025-06-26,2025-07-03,2025-07-02,85,2,Responsable WP1,T1.2,Completada
+P01,Campus d’Emprenedoria Disruptiu,WP1,T1.4,Tasca 4 · Gestió i governança,2025-07-07,2025-07-14,2025-07-14,100,2,Responsable WP1,T1.3,Completada
+P01,Campus d’Emprenedoria Disruptiu,WP2,T2.1,Tasca 1 · Diagnosi i planificació,2025-07-19,2025-07-26,2025-07-26,55,3,Responsable WP2,,Completada
+P01,Campus d’Emprenedoria Disruptiu,WP2,T2.2,Tasca 2 · Diagnosi i planificació,2025-07-31,2025-08-07,2025-08-08,70,3,Responsable WP2,T2.1,Completada
+P01,Campus d’Emprenedoria Disruptiu,WP2,T2.3,Tasca 3 · Diagnosi i planificació,2025-08-11,2025-08-18,2025-08-17,85,3,Responsable WP2,T2.2,Completada
+P01,Campus d’Emprenedoria Disruptiu,WP2,T2.4,Tasca 4 · Diagnosi i planificació,2025-08-23,2025-08-30,2025-08-30,100,3,Responsable WP2,T2.3,Completada
+P01,Campus d’Emprenedoria Disruptiu,WP3,T3.1,Tasca 1 · Execució i experimentació,2025-09-04,2025-09-11,2025-09-11,55,1,Responsable WP3,,Completada
+P01,Campus d’Emprenedoria Disruptiu,WP3,T3.2,Tasca 2 · Execució i experimentació,2025-09-15,2025-09-22,2025-09-23,70,1,Responsable WP3,T3.1,Completada
+P01,Campus d’Emprenedoria Disruptiu,WP3,T3.3,Tasca 3 · Execució i experimentació,2025-09-27,2025-10-04,2025-10-03,85,1,Responsable WP3,T3.2,Completada
+P01,Campus d’Emprenedoria Disruptiu,WP3,T3.4,Tasca 4 · Execució i experimentació,2025-10-08,2025-10-15,2025-10-15,100,1,Responsable WP3,T3.3,Completada
+P01,Campus d’Emprenedoria Disruptiu,WP4,T4.1,Tasca 1 · Transferència i tancament,2025-10-20,2025-10-27,2025-10-27,55,2,Responsable WP4,,Completada
+P01,Campus d’Emprenedoria Disruptiu,WP4,T4.2,Tasca 2 · Transferència i tancament,2025-11-01,2025-11-08,2025-11-09,70,2,Responsable WP4,T4.1,Completada
+P01,Campus d’Emprenedoria Disruptiu,WP4,T4.3,Tasca 3 · Transferència i tancament,2025-11-12,2025-11-19,2025-11-18,85,2,Responsable WP4,T4.2,Completada
+P01,Campus d’Emprenedoria Disruptiu,WP4,T4.4,Tasca 4 · Transferència i tancament,2025-11-24,2025-12-01,2025-12-01,100,2,Responsable WP4,T4.3,Completada
+P02,Network4Work,WP1,T1.1,Tasca 1 · Gestió i governança,2025-11-12,2025-12-16,2025-12-16,55,2,Responsable WP1,,Completada
+P02,Network4Work,WP1,T1.2,Tasca 2 · Gestió i governança,2026-01-08,2026-02-11,2026-02-12,70,2,Responsable WP1,T1.1,Completada
+P02,Network4Work,WP1,T1.3,Tasca 3 · Gestió i governança,2026-03-05,2026-04-08,2026-04-07,85,2,Responsable WP1,T1.2,Completada
+P02,Network4Work,WP1,T1.4,Tasca 4 · Gestió i governança,2026-05-01,2026-06-04,2026-06-04,100,2,Responsable WP1,T1.3,Completada
+P02,Network4Work,WP2,T2.1,Tasca 1 · Diagnosi i planificació,2026-06-27,2026-07-31,2026-07-31,55,3,Responsable WP2,,Completada
+P02,Network4Work,WP2,T2.2,Tasca 2 · Diagnosi i planificació,2026-08-23,2026-09-26,,70,3,Responsable WP2,T2.1,En curs
+P02,Network4Work,WP2,T2.3,Tasca 3 · Diagnosi i planificació,2026-10-19,2026-11-22,,85,3,Responsable WP2,T2.2,En curs
+P02,Network4Work,WP2,T2.4,Tasca 4 · Diagnosi i planificació,2026-12-15,2027-01-18,,100,3,Responsable WP2,T2.3,En curs
+P02,Network4Work,WP3,T3.1,Tasca 1 · Execució i experimentació,2027-02-10,2027-03-16,,55,1,Responsable WP3,,En curs
+P02,Network4Work,WP3,T3.2,Tasca 2 · Execució i experimentació,2027-04-08,2027-05-12,,70,1,Responsable WP3,T3.1,En curs
+P02,Network4Work,WP3,T3.3,Tasca 3 · Execució i experimentació,2027-06-04,2027-07-08,,85,1,Responsable WP3,T3.2,En curs
+P02,Network4Work,WP3,T3.4,Tasca 4 · Execució i experimentació,2027-07-31,2027-09-03,,100,1,Responsable WP3,T3.3,En curs
+P02,Network4Work,WP4,T4.1,Tasca 1 · Transferència i tancament,2027-09-26,2027-10-30,,55,2,Responsable WP4,,En curs
+P02,Network4Work,WP4,T4.2,Tasca 2 · Transferència i tancament,2027-11-22,2027-12-26,,70,2,Responsable WP4,T4.1,En curs
+P02,Network4Work,WP4,T4.3,Tasca 3 · Transferència i tancament,2028-01-18,2028-02-21,,85,2,Responsable WP4,T4.2,En curs
+P02,Network4Work,WP4,T4.4,Tasca 4 · Transferència i tancament,2028-03-15,2028-04-18,,100,2,Responsable WP4,T4.3,En curs
+P03,C4TALENT,WP1,T1.1,Tasca 1 · Gestió i governança,2023-06-12,2023-07-18,2023-07-18,55,2,Responsable WP1,,Completada
+P03,C4TALENT,WP1,T1.2,Tasca 2 · Gestió i governança,2023-08-10,2023-09-15,2023-09-16,70,2,Responsable WP1,T1.1,Completada
+P03,C4TALENT,WP1,T1.3,Tasca 3 · Gestió i governança,2023-10-08,2023-11-13,2023-11-12,85,2,Responsable WP1,T1.2,Completada
+P03,C4TALENT,WP1,T1.4,Tasca 4 · Gestió i governança,2023-12-06,2024-01-11,2024-01-11,100,2,Responsable WP1,T1.3,Completada
+P03,C4TALENT,WP2,T2.1,Tasca 1 · Diagnosi i planificació,2024-02-03,2024-03-10,2024-03-10,55,3,Responsable WP2,,Completada
+P03,C4TALENT,WP2,T2.2,Tasca 2 · Diagnosi i planificació,2024-04-02,2024-05-08,2024-05-09,70,3,Responsable WP2,T2.1,Completada
+P03,C4TALENT,WP2,T2.3,Tasca 3 · Diagnosi i planificació,2024-05-31,2024-07-06,2024-07-05,85,3,Responsable WP2,T2.2,Completada
+P03,C4TALENT,WP2,T2.4,Tasca 4 · Diagnosi i planificació,2024-07-29,2024-09-03,2024-09-03,100,3,Responsable WP2,T2.3,Completada
+P03,C4TALENT,WP3,T3.1,Tasca 1 · Execució i experimentació,2024-09-26,2024-11-01,2024-11-01,55,1,Responsable WP3,,Completada
+P03,C4TALENT,WP3,T3.2,Tasca 2 · Execució i experimentació,2024-11-24,2024-12-30,2024-12-31,70,1,Responsable WP3,T3.1,Completada
+P03,C4TALENT,WP3,T3.3,Tasca 3 · Execució i experimentació,2025-01-22,2025-02-27,2025-02-26,85,1,Responsable WP3,T3.2,Completada
+P03,C4TALENT,WP3,T3.4,Tasca 4 · Execució i experimentació,2025-03-22,2025-04-27,2025-04-27,100,1,Responsable WP3,T3.3,Completada
+P03,C4TALENT,WP4,T4.1,Tasca 1 · Transferència i tancament,2025-05-20,2025-06-25,2025-06-25,55,2,Responsable WP4,,Completada
+P03,C4TALENT,WP4,T4.2,Tasca 2 · Transferència i tancament,2025-07-18,2025-08-23,2025-08-24,70,2,Responsable WP4,T4.1,Completada
+P03,C4TALENT,WP4,T4.3,Tasca 3 · Transferència i tancament,2025-09-15,2025-10-21,2025-10-20,85,2,Responsable WP4,T4.2,Completada
+P03,C4TALENT,WP4,T4.4,Tasca 4 · Transferència i tancament,2025-11-13,2025-12-19,2025-12-19,100,2,Responsable WP4,T4.3,Completada

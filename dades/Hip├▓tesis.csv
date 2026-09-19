@@ -1,0 +1,7 @@
+﻿Id_projecte,Nom_projecte,Id_hipòtesi,Hipòtesi,Criticitat,Probabilitat_1_5,Impacte_1_5,Mecanisme_verificació,Estat
+P01,Campus d’Emprenedoria Disruptiu,H01,La mentoria respon a necessitats reals,Alta,4,4,Satisfacció i evolució T0-T3,Validada parcialment
+P01,Campus d’Emprenedoria Disruptiu,H02,Les connexions es converteixen en oportunitats,Mitjana,4,5,Seguiment 6/12 mesos,En seguiment
+P02,Network4Work,H01,Els actors mantenen participació sostinguda,Alta,5,4,Assistència i compromisos,En seguiment
+P02,Network4Work,H02,La bona pràctica és transferible a economia blava,Alta,4,5,Proves i feedback,En seguiment
+P03,C4TALENT,H01,Un ecosistema startup fort reté/atrau talent,Alta,4,5,Indicadors de talent,En seguiment
+P03,C4TALENT,H02,Les accions cocreades són assumibles localment,Mitjana,4,3,Compromisos i plans,Validada parcialment

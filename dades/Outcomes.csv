@@ -1,0 +1,10 @@
+﻿Id_projecte,Nom_projecte,Id_outcome,Outcome,Valor_objectiu,Valor_actual,Unitat,Data_mesura,Id_objectiu
+P01,Campus d’Emprenedoria Disruptiu,OC01,Startups amb model validat,80,72,%,2025-12-04,O1
+P01,Campus d’Emprenedoria Disruptiu,OC02,Startups amb nous clients o pilots,65,58,%,2025-12-04,O2
+P01,Campus d’Emprenedoria Disruptiu,OC03,Inversió privada mobilitzada,1500000,1100000,EUR,2026-06-30,O2
+P02,Network4Work,OC01,Agents locals que cooperen recurrentment,80,55,%,2026-09-19,O1
+P02,Network4Work,OC02,Elements de la bona pràctica adaptats,100,35,%,2026-09-19,O2
+P02,Network4Work,OC03,Oportunitats ocupacionals/formatives connectades,30,12,connexions,2026-09-19,O3
+P03,C4TALENT,OC01,Accions preparades per implementació,100,92,%,2025-12-15,O1
+P03,C4TALENT,OC02,Agents amb millor coordinació,75,71,%,2025-12-15,O1
+P03,C4TALENT,OC03,Iniciatives de talent activades,20,16,iniciatives,2025-12-15,O2

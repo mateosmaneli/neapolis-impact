@@ -1,0 +1,25 @@
+﻿Id_projecte,Nom_projecte,Id_WP,Id_risc,Risc,Probabilitat_1_5,Impacte_1_5,Categoria,Data_obertura,Data_tancament,Responsable,Acció_correctora,Estat
+P01,Campus d’Emprenedoria Disruptiu,WP1,R11,Risc de desviació de calendari o dependència,4,4,Calendari,2025-06-01,,Responsable WP1,"Replanificar, assignar responsable i verificar fita",Tancat
+P01,Campus d’Emprenedoria Disruptiu,WP1,RD11,Risc documental / evidència incompleta,2,4,Documentació,2025-06-01,,Responsable WP1,Completar evidències abans del tancament,Tancat
+P01,Campus d’Emprenedoria Disruptiu,WP2,R12,Risc de desviació de calendari o dependència,5,4,Calendari,2025-07-17,,Responsable WP2,"Replanificar, assignar responsable i verificar fita",Tancat
+P01,Campus d’Emprenedoria Disruptiu,WP2,RD12,Risc documental / evidència incompleta,2,4,Documentació,2025-07-17,,Responsable WP2,Completar evidències abans del tancament,Tancat
+P01,Campus d’Emprenedoria Disruptiu,WP3,R13,Risc de desviació de calendari o dependència,3,4,Calendari,2025-09-02,,Responsable WP3,"Replanificar, assignar responsable i verificar fita",Tancat
+P01,Campus d’Emprenedoria Disruptiu,WP3,RD13,Risc documental / evidència incompleta,2,4,Documentació,2025-09-02,,Responsable WP3,Completar evidències abans del tancament,Tancat
+P01,Campus d’Emprenedoria Disruptiu,WP4,R14,Risc de desviació de calendari o dependència,4,4,Calendari,2025-10-18,,Responsable WP4,"Replanificar, assignar responsable i verificar fita",Tancat
+P01,Campus d’Emprenedoria Disruptiu,WP4,RD14,Risc documental / evidència incompleta,2,4,Documentació,2025-10-18,,Responsable WP4,Completar evidències abans del tancament,Tancat
+P02,Network4Work,WP1,R21,Risc de desviació de calendari o dependència,4,4,Calendari,2025-11-01,,Responsable WP1,"Replanificar, assignar responsable i verificar fita",Obert
+P02,Network4Work,WP1,RD21,Risc documental / evidència incompleta,2,4,Documentació,2025-11-01,,Responsable WP1,Completar evidències abans del tancament,Obert
+P02,Network4Work,WP2,R22,Risc de desviació de calendari o dependència,5,4,Calendari,2026-06-16,,Responsable WP2,"Replanificar, assignar responsable i verificar fita",Obert
+P02,Network4Work,WP2,RD22,Risc documental / evidència incompleta,2,4,Documentació,2026-06-16,,Responsable WP2,Completar evidències abans del tancament,Obert
+P02,Network4Work,WP3,R23,Risc de desviació de calendari o dependència,3,4,Calendari,2027-01-30,,Responsable WP3,"Replanificar, assignar responsable i verificar fita",Obert
+P02,Network4Work,WP3,RD23,Risc documental / evidència incompleta,2,4,Documentació,2027-01-30,,Responsable WP3,Completar evidències abans del tancament,Tancat
+P02,Network4Work,WP4,R24,Risc de desviació de calendari o dependència,4,4,Calendari,2027-09-15,,Responsable WP4,"Replanificar, assignar responsable i verificar fita",Obert
+P02,Network4Work,WP4,RD24,Risc documental / evidència incompleta,2,4,Documentació,2027-09-15,,Responsable WP4,Completar evidències abans del tancament,Tancat
+P03,C4TALENT,WP1,R31,Risc de desviació de calendari o dependència,4,4,Calendari,2023-06-01,,Responsable WP1,"Replanificar, assignar responsable i verificar fita",Tancat
+P03,C4TALENT,WP1,RD31,Risc documental / evidència incompleta,2,4,Documentació,2023-06-01,,Responsable WP1,Completar evidències abans del tancament,Tancat
+P03,C4TALENT,WP2,R32,Risc de desviació de calendari o dependència,5,4,Calendari,2024-01-23,,Responsable WP2,"Replanificar, assignar responsable i verificar fita",Tancat
+P03,C4TALENT,WP2,RD32,Risc documental / evidència incompleta,2,4,Documentació,2024-01-23,,Responsable WP2,Completar evidències abans del tancament,Tancat
+P03,C4TALENT,WP3,R33,Risc de desviació de calendari o dependència,3,4,Calendari,2024-09-15,,Responsable WP3,"Replanificar, assignar responsable i verificar fita",Tancat
+P03,C4TALENT,WP3,RD33,Risc documental / evidència incompleta,2,4,Documentació,2024-09-15,,Responsable WP3,Completar evidències abans del tancament,Tancat
+P03,C4TALENT,WP4,R34,Risc de desviació de calendari o dependència,4,4,Calendari,2025-05-09,,Responsable WP4,"Replanificar, assignar responsable i verificar fita",Tancat
+P03,C4TALENT,WP4,RD34,Risc documental / evidència incompleta,2,4,Documentació,2025-05-09,,Responsable WP4,Completar evidències abans del tancament,Tancat

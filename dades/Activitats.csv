@@ -1,0 +1,16 @@
+﻿Id_projecte,Nom_projecte,Id_activitat,Activitat,Tipus_activitat,Finalitat,Data_inici,Data_fi_prevista,Valor_objectiu,Unitat,Valor_assolit,Estat
+P01,Campus d’Emprenedoria Disruptiu,A01,Selecció i diagnosi,Diagnosi,Generar evidència i avançar en la TdC,2025-06-01,2025-06-30,6,startups,6,Finalitzada
+P01,Campus d’Emprenedoria Disruptiu,A02,Formació i tallers,Capacitació,Generar evidència i avançar en la TdC,2025-07-01,2025-11-15,20,sessions,18,En curs
+P01,Campus d’Emprenedoria Disruptiu,A03,Mentories personalitzades,Mentoria,Generar evidència i avançar en la TdC,2025-07-01,2025-11-30,120,hores,112,En curs
+P01,Campus d’Emprenedoria Disruptiu,A04,Connexió startup-empresa/inversor,Connexió,Generar evidència i avançar en la TdC,2025-09-01,2025-12-04,30,connexions,26,En curs
+P01,Campus d’Emprenedoria Disruptiu,A05,Demo Day,Difusió / mercat,Generar evidència i avançar en la TdC,2025-12-04,2025-12-04,6,pitches,6,Finalitzada
+P02,Network4Work,A01,Anàlisi del sistema local d’ocupació,Diagnosi,Generar evidència i avançar en la TdC,2026-01-15,2026-06-30,1,diagnosi,1,Finalitzada
+P02,Network4Work,A02,Constitució i dinamització ULG,Governança,Generar evidència i avançar en la TdC,2026-03-01,2028-03-31,12,sessions,4,En curs
+P02,Network4Work,A03,Trobades transnacionals,Aprenentatge,Generar evidència i avançar en la TdC,2026-03-04,2028-03-31,6,trobades,2,En curs
+P02,Network4Work,A04,Adaptació del Local Employment Forum,Transferència,Generar evidència i avançar en la TdC,2026-04-01,2027-12-31,5,proves,1,En curs
+P02,Network4Work,A05,Pla de transferència local,Planificació,Generar evidència i avançar en la TdC,2027-01-01,2028-04-30,1,pla,0,En curs
+P03,C4TALENT,A01,Baseline i diagnosi d’ecosistema,Diagnosi,Generar evidència i avançar en la TdC,2023-06-01,2024-02-29,1,baseline,1,Finalitzada
+P03,C4TALENT,A02,Trobades transnacionals,Aprenentatge,Generar evidència i avançar en la TdC,2023-11-01,2025-10-15,6,trobades,6,Finalitzada
+P03,C4TALENT,A03,ULG i cocreació,Governança,Generar evidència i avançar en la TdC,2023-09-01,2025-09-30,14,sessions,14,Finalitzada
+P03,C4TALENT,A04,Small Scale Actions,Experimentació,Generar evidència i avançar en la TdC,2024-06-01,2025-06-30,4,proves,4,Finalitzada
+P03,C4TALENT,A05,Pla d’Acció Integrat,Planificació,Generar evidència i avançar en la TdC,2024-10-01,2025-12-15,1,pla,1,Finalitzada

@@ -1,0 +1,7 @@
+﻿Id_projecte,Nom_projecte,Id_impacte,Impacte,Valor_objectiu,Valor_actual,Unitat,Data_mesura,Tipus_evidència
+P01,Campus d’Emprenedoria Disruptiu,IMP01,Ocupació addicional generada,23,17,FTE,2026-12-04,Contribució
+P01,Campus d’Emprenedoria Disruptiu,IMP02,Creixement agregat de facturació,30,21,%,2026-12-04,Contribució
+P02,Network4Work,IMP01,Millora percebuda de coordinació local,80,48,%,2028-04-30,Contribució
+P02,Network4Work,IMP02,Connexions ocupació-talent persistents,20,7,aliances,2028-04-30,Contribució
+P03,C4TALENT,IMP01,Capacitat local d’atraure/retenir talent,80,74,%,2025-12-31,Contribució
+P03,C4TALENT,IMP02,Accions IAP incorporades a polítiques/programes,10,7,accions,2026-12-31,Contribució
