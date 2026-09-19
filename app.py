@@ -40,7 +40,15 @@ def load_demo():
             raw=zlib.decompress(base64.b64decode(EMBEDDED_DATA[n]))
             out[n]=pd.read_csv(io.BytesIO(raw))
     return out
-if 'dades' not in st.session_state: st.session_state.dades=load_demo(); st.session_state.mode='DEMO · DADES FICTÍCIES'
+if 'dades' not in st.session_state:
+    st.session_state.dades=load_demo(); st.session_state.mode='DEMO · DADES FICTÍCIES'
+else:
+    # Migration guard: Streamlit can preserve session_state after a deployment.
+    # Add any datasets introduced by a newer app version without requiring users to refresh the session.
+    _fresh=load_demo()
+    for _name in TABLES:
+        if _name not in st.session_state.dades:
+            st.session_state.dades[_name]=_fresh[_name]
 if 'nav' not in st.session_state: st.session_state.nav='HOME'
 D=st.session_state.dades
 
@@ -132,7 +140,7 @@ if st.session_state.nav=='HOME':
    with cols[0]: card('Ocupació actual',int(s.Ocupació_actual),'Llocs de treball actuals declarats per la startup.',f"T0 {int(s.Ocupació_T0)}")
    with cols[1]: card('Outcome clau',s.Outcome_clau,'Canvi esperat de curt/mitjà termini vinculat a la participació de la startup.')
    with cols[2]: card('Retorn territorial',s.Retorn_territorial_clau,'Dimensió de valor local que es vol verificar i seguir.')
- section('Predicció de futur','Estimacions algorítmiques a 90 dies calculades sobre 36 mesos d’històric fictici. Serveixen com a suport preventiu a la decisió gerencial.')
+ section('Predicció de futur','Estimacions algorítmiques a 90 dies calculades sobre 36 mesos d’històric fictici.')
  F=forecast(pid); pc=st.columns(4)
  with pc[0]: card('Risc previst a 90 dies',f"{F['risc']:.0f}/100",'Tendència estimada de risc global a partir de l’històric de gestió.')
  with pc[1]: card('Retard mitjà previst',f"{F['retard']:.0f} dies",'Estimació del retard mitjà esperat en fites i lliurables.')
