@@ -26,7 +26,7 @@ EMBEDDED_DATA = {
 }
 
 @st.cache_data
-def load_demo():
+def load_demo_v83(cache_version="v8.3"):
     # Prefer external CSV files when present; otherwise use the embedded demo data.
     # This makes the Streamlit deployment self-contained even if the /dades folder
     # is not uploaded to GitHub.
@@ -40,20 +40,15 @@ def load_demo():
             raw=zlib.decompress(base64.b64decode(EMBEDDED_DATA[n]))
             out[n]=pd.read_csv(io.BytesIO(raw))
     return out
-if 'dades' not in st.session_state:
-    st.session_state.dades=load_demo(); st.session_state.mode='DEMO · DADES FICTÍCIES'
-else:
-    # Migration guard: Streamlit can preserve session_state after a deployment.
-    # Add any datasets introduced by a newer app version without requiring users to refresh the session.
-    _fresh=load_demo()
-    for _name in TABLES:
-        if _name not in st.session_state.dades:
-            st.session_state.dades[_name]=_fresh[_name]
-if 'nav' not in st.session_state: st.session_state.nav='HOME'
+APP_DATA_VERSION='v8.3'
+if st.session_state.get('app_data_version') != APP_DATA_VERSION:
+    st.session_state.dades=load_demo_v83().copy()
+    st.session_state.mode='DEMO · DADES FICTÍCIES'
+    st.session_state.app_data_version=APP_DATA_VERSION
+    st.session_state.nav='HOME'
+if 'nav' not in st.session_state:
+    st.session_state.nav='HOME'
 D=st.session_state.dades
-# Ensure the predictive history is always present after deployments, even in an already-open browser session.
-if 'Històric_projectes' not in D or D['Històric_projectes'] is None or D['Històric_projectes'].empty:
-    D['Històric_projectes']=load_demo()['Històric_projectes'].copy()
 
 def dt(df,*cols):
  d=df.copy()
@@ -74,9 +69,10 @@ def objective_card(title,subtitle,value,desc):
  st.markdown(f'''<div class="kpi"><div class="kt">{title}</div><div style="font-size:12px;color:#37566b;font-weight:700;margin-top:5px">{subtitle}</div><div class="kv">{value}</div><div class="kx">{desc}</div></div>''',unsafe_allow_html=True)
 def forecast(pid):
  # Robust fallback: never depend on a stale Streamlit session for the historical table.
- h=D.get('Històric_projectes')
- if h is None or h.empty:
-  h=load_demo().get('Històric_projectes', pd.DataFrame())
+ h=D.get('Històric_projectes', pd.DataFrame()).copy()
+ if h.empty:
+  fresh=load_demo_v83()
+  h=fresh.get('Històric_projectes', pd.DataFrame()).copy()
  if h.empty:
   return {'risc':50.0,'retard':0.0,'pressupost':0.0,'objectius':0.0}
  h=h[h.Id_projecte==pid].copy(); h['Data_observació']=pd.to_datetime(h['Data_observació']); h=h.sort_values('Data_observació').tail(24); x=np.arange(len(h)); xf=len(h)+3
@@ -281,7 +277,7 @@ elif st.session_state.nav=='Data Hub':
      if sh in TABLES: st.session_state.dades[sh]=pd.read_excel(up,sheet_name=sh)
    st.session_state.mode='DADES CARREGADES · SESSIÓ'; st.success('Dades carregades.'); st.rerun()
   except Exception as e: st.error(f'No s’han pogut carregar les dades: {e}')
- if st.button('Restablir dades fictícies'): st.session_state.dades=load_demo(); st.session_state.mode='DEMO · DADES FICTÍCIES'; st.rerun()
+ if st.button('Restablir dades fictícies'): st.session_state.dades=load_demo_v83(); st.session_state.mode='DEMO · DADES FICTÍCIES'; st.rerun()
 
 elif st.session_state.nav=='Metodologia':
  section('Metodologia','Regles de càlcul, governança, traçabilitat i límits interpretatius.')
