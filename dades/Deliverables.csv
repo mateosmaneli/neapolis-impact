@@ -1,16 +1,16 @@
-﻿Id_projecte,Nom_projecte,Id_WP,Id_lliurable,Nom_lliurable,Data_prevista,Data_real,Pes_percent,Responsable,Estat
-P01,Campus d’Emprenedoria Disruptiu,WP1,D1.1,Lliurable 1 · Gestió i governança,2025-06-19,2025-06-20,33.33,Responsable WP1,Completat
-P01,Campus d’Emprenedoria Disruptiu,WP1,D1.2,Lliurable 2 · Gestió i governança,2025-07-04,2025-07-06,33.33,Responsable WP1,Completat
-P01,Campus d’Emprenedoria Disruptiu,WP1,D1.3,Lliurable 3 · Gestió i governança,2025-07-17,2025-07-20,33.33,Responsable WP1,Completat
-P01,Campus d’Emprenedoria Disruptiu,WP2,D2.1,Lliurable 1 · Diagnosi i planificació,2025-08-04,2025-08-06,33.33,Responsable WP2,Completat
-P01,Campus d’Emprenedoria Disruptiu,WP2,D2.2,Lliurable 2 · Diagnosi i planificació,2025-08-19,2025-08-22,33.33,Responsable WP2,Completat
-P01,Campus d’Emprenedoria Disruptiu,WP2,D2.3,Lliurable 3 · Diagnosi i planificació,2025-09-02,2025-09-06,33.33,Responsable WP2,Completat
-P01,Campus d’Emprenedoria Disruptiu,WP3,D3.1,Lliurable 1 · Execució i experimentació,2025-09-20,2025-09-23,33.33,Responsable WP3,Completat
-P01,Campus d’Emprenedoria Disruptiu,WP3,D3.2,Lliurable 2 · Execució i experimentació,2025-10-05,2025-10-09,33.33,Responsable WP3,Completat
-P01,Campus d’Emprenedoria Disruptiu,WP3,D3.3,Lliurable 3 · Execució i experimentació,2025-10-18,2025-10-23,33.33,Responsable WP3,Completat
-P01,Campus d’Emprenedoria Disruptiu,WP4,D4.1,Lliurable 1 · Transferència i tancament,2025-11-05,2025-11-09,33.33,Responsable WP4,Completat
-P01,Campus d’Emprenedoria Disruptiu,WP4,D4.2,Lliurable 2 · Transferència i tancament,2025-11-20,2025-11-25,33.33,Responsable WP4,Completat
-P01,Campus d’Emprenedoria Disruptiu,WP4,D4.3,Lliurable 3 · Transferència i tancament,2025-12-04,2025-12-02,33.33,Responsable WP4,Completat
+Id_projecte,Nom_projecte,Id_WP,Id_lliurable,Nom_lliurable,Data_prevista,Data_real,Pes_percent,Responsable,Estat
+P01,Campus d’Emprenedoria Disruptiva,WP1,D1.1,Lliurable 1 · Gestió i governança,2025-06-19,2025-06-20,33.33,Responsable WP1,Completat
+P01,Campus d’Emprenedoria Disruptiva,WP1,D1.2,Lliurable 2 · Gestió i governança,2025-07-04,2025-07-06,33.33,Responsable WP1,Completat
+P01,Campus d’Emprenedoria Disruptiva,WP1,D1.3,Lliurable 3 · Gestió i governança,2025-07-17,2025-07-20,33.33,Responsable WP1,Completat
+P01,Campus d’Emprenedoria Disruptiva,WP2,D2.1,Lliurable 1 · Diagnosi i planificació,2025-08-04,2025-08-06,33.33,Responsable WP2,Completat
+P01,Campus d’Emprenedoria Disruptiva,WP2,D2.2,Lliurable 2 · Diagnosi i planificació,2025-08-19,2025-08-22,33.33,Responsable WP2,Completat
+P01,Campus d’Emprenedoria Disruptiva,WP2,D2.3,Lliurable 3 · Diagnosi i planificació,2025-09-02,2025-09-06,33.33,Responsable WP2,Completat
+P01,Campus d’Emprenedoria Disruptiva,WP3,D3.1,Lliurable 1 · Execució i experimentació,2025-09-20,2025-09-23,33.33,Responsable WP3,Completat
+P01,Campus d’Emprenedoria Disruptiva,WP3,D3.2,Lliurable 2 · Execució i experimentació,2025-10-05,2025-10-09,33.33,Responsable WP3,Completat
+P01,Campus d’Emprenedoria Disruptiva,WP3,D3.3,Lliurable 3 · Execució i experimentació,2025-10-18,2025-10-23,33.33,Responsable WP3,Completat
+P01,Campus d’Emprenedoria Disruptiva,WP4,D4.1,Lliurable 1 · Transferència i tancament,2025-11-05,2025-11-09,33.33,Responsable WP4,Completat
+P01,Campus d’Emprenedoria Disruptiva,WP4,D4.2,Lliurable 2 · Transferència i tancament,2025-11-20,2025-11-25,33.33,Responsable WP4,Completat
+P01,Campus d’Emprenedoria Disruptiva,WP4,D4.3,Lliurable 3 · Transferència i tancament,2025-12-04,2025-12-02,33.33,Responsable WP4,Completat
 P02,Network4Work,WP1,D1.1,Lliurable 1 · Gestió i governança,2026-01-30,2026-02-01,33.33,Responsable WP1,Completat
 P02,Network4Work,WP1,D1.2,Lliurable 2 · Gestió i governança,2026-04-13,2026-04-16,33.33,Responsable WP1,Completat
 P02,Network4Work,WP1,D1.3,Lliurable 3 · Gestió i governança,2026-06-16,2026-06-20,33.33,Responsable WP1,Completat

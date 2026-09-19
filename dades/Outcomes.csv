@@ -1,16 +1,46 @@
-Id_projecte,Nom_projecte,Id_outcome,Outcome,Valor_objectiu,Valor_actual,Unitat,Data_mesura,Id_objectiu
-P01,Campus d’Emprenedoria Disruptiu,OC01,Startups amb model validat,80,72,%,2025-12-04,O1
-P01,Campus d’Emprenedoria Disruptiu,OC02,Startups amb nous clients o pilots,65,58,%,2025-12-04,O2
-P01,Campus d’Emprenedoria Disruptiu,OC03,Inversió privada mobilitzada,1500000,1100000,EUR,2026-06-30,O2
-P02,Network4Work,OC01,Agents locals que cooperen recurrentment,80,55,%,2026-09-19,O1
-P02,Network4Work,OC02,Elements de la bona pràctica adaptats,100,35,%,2026-09-19,O2
-P02,Network4Work,OC03,Oportunitats ocupacionals/formatives connectades,30,12,connexions,2026-09-19,O3
-P03,C4TALENT,OC01,Accions preparades per implementació,100,92,%,2025-12-15,O1
-P03,C4TALENT,OC02,Agents amb millor coordinació,75,71,%,2025-12-15,O1
-P03,C4TALENT,OC03,Iniciatives de talent activades,20,16,iniciatives,2025-12-15,O2
-P01,Campus d’Emprenedoria Disruptiu,P01-OUX1,Augment de la cooperació efectiva entre agents,75,58,%,2025-12-04,O1
-P01,Campus d’Emprenedoria Disruptiu,P01-OUX2,Millora de la capacitat de gestió i seguiment,85,69,%,2025-12-04,O2
-P02,Network4Work,P02-OUX1,Augment de la cooperació efectiva entre agents,75,58,%,2026-09-19,O1
-P02,Network4Work,P02-OUX2,Millora de la capacitat de gestió i seguiment,85,69,%,2026-09-19,O2
-P03,C4TALENT,P03-OUX1,Augment de la cooperació efectiva entre agents,75,58,%,2025-12-15,O1
-P03,C4TALENT,P03-OUX2,Millora de la capacitat de gestió i seguiment,85,69,%,2025-12-15,O1
+Id_projecte,Nom_projecte,Id_outcome,Outcome,Valor_objectiu,Valor_actual,Unitat,Data_mesura,Id_objectiu,Període_històric
+P01,Campus d’Emprenedoria Disruptiva,OC01,Startups amb model validat,80,51.8,%,2023-12-04,O1,T-2
+P01,Campus d’Emprenedoria Disruptiva,OC02,Startups amb nous clients o pilots,65,41.8,%,2023-12-04,O2,T-2
+P01,Campus d’Emprenedoria Disruptiva,OC03,Inversió privada mobilitzada,1500000,792000.0,EUR,2024-06-30,O2,T-2
+P02,Network4Work,OC01,Agents locals que cooperen recurrentment,80,39.6,%,2024-09-19,O1,T-2
+P02,Network4Work,OC02,Elements de la bona pràctica adaptats,100,25.2,%,2024-09-19,O2,T-2
+P02,Network4Work,OC03,Oportunitats ocupacionals/formatives connectades,30,8.6,connexions,2024-09-19,O3,T-2
+P03,C4TALENT,OC01,Accions preparades per implementació,100,66.2,%,2023-12-15,O1,T-2
+P03,C4TALENT,OC02,Agents amb millor coordinació,75,51.1,%,2023-12-15,O1,T-2
+P03,C4TALENT,OC03,Iniciatives de talent activades,20,11.5,iniciatives,2023-12-15,O2,T-2
+P01,Campus d’Emprenedoria Disruptiva,P01-OUX1,Augment de la cooperació efectiva entre agents,75,41.8,%,2023-12-04,O1,T-2
+P01,Campus d’Emprenedoria Disruptiva,P01-OUX2,Millora de la capacitat de gestió i seguiment,85,49.7,%,2023-12-04,O2,T-2
+P02,Network4Work,P02-OUX1,Augment de la cooperació efectiva entre agents,75,41.8,%,2024-09-19,O1,T-2
+P02,Network4Work,P02-OUX2,Millora de la capacitat de gestió i seguiment,85,49.7,%,2024-09-19,O2,T-2
+P03,C4TALENT,P03-OUX1,Augment de la cooperació efectiva entre agents,75,41.8,%,2023-12-15,O1,T-2
+P03,C4TALENT,P03-OUX2,Millora de la capacitat de gestió i seguiment,85,49.7,%,2023-12-15,O1,T-2
+P01,Campus d’Emprenedoria Disruptiva,OC01,Startups amb model validat,80,61.9,%,2024-12-04,O1,T-1
+P01,Campus d’Emprenedoria Disruptiva,OC02,Startups amb nous clients o pilots,65,49.9,%,2024-12-04,O2,T-1
+P01,Campus d’Emprenedoria Disruptiva,OC03,Inversió privada mobilitzada,1500000,946000.0,EUR,2025-06-30,O2,T-1
+P02,Network4Work,OC01,Agents locals que cooperen recurrentment,80,47.3,%,2025-09-19,O1,T-1
+P02,Network4Work,OC02,Elements de la bona pràctica adaptats,100,30.1,%,2025-09-19,O2,T-1
+P02,Network4Work,OC03,Oportunitats ocupacionals/formatives connectades,30,10.3,connexions,2025-09-19,O3,T-1
+P03,C4TALENT,OC01,Accions preparades per implementació,100,79.1,%,2024-12-15,O1,T-1
+P03,C4TALENT,OC02,Agents amb millor coordinació,75,61.1,%,2024-12-15,O1,T-1
+P03,C4TALENT,OC03,Iniciatives de talent activades,20,13.8,iniciatives,2024-12-15,O2,T-1
+P01,Campus d’Emprenedoria Disruptiva,P01-OUX1,Augment de la cooperació efectiva entre agents,75,49.9,%,2024-12-04,O1,T-1
+P01,Campus d’Emprenedoria Disruptiva,P01-OUX2,Millora de la capacitat de gestió i seguiment,85,59.3,%,2024-12-04,O2,T-1
+P02,Network4Work,P02-OUX1,Augment de la cooperació efectiva entre agents,75,49.9,%,2025-09-19,O1,T-1
+P02,Network4Work,P02-OUX2,Millora de la capacitat de gestió i seguiment,85,59.3,%,2025-09-19,O2,T-1
+P03,C4TALENT,P03-OUX1,Augment de la cooperació efectiva entre agents,75,49.9,%,2024-12-15,O1,T-1
+P03,C4TALENT,P03-OUX2,Millora de la capacitat de gestió i seguiment,85,59.3,%,2024-12-15,O1,T-1
+P01,Campus d’Emprenedoria Disruptiva,OC01,Startups amb model validat,80,72.0,%,2025-12-04,O1,Actual
+P01,Campus d’Emprenedoria Disruptiva,OC02,Startups amb nous clients o pilots,65,58.0,%,2025-12-04,O2,Actual
+P01,Campus d’Emprenedoria Disruptiva,OC03,Inversió privada mobilitzada,1500000,1100000.0,EUR,2026-06-30,O2,Actual
+P02,Network4Work,OC01,Agents locals que cooperen recurrentment,80,55.0,%,2026-09-19,O1,Actual
+P02,Network4Work,OC02,Elements de la bona pràctica adaptats,100,35.0,%,2026-09-19,O2,Actual
+P02,Network4Work,OC03,Oportunitats ocupacionals/formatives connectades,30,12.0,connexions,2026-09-19,O3,Actual
+P03,C4TALENT,OC01,Accions preparades per implementació,100,92.0,%,2025-12-15,O1,Actual
+P03,C4TALENT,OC02,Agents amb millor coordinació,75,71.0,%,2025-12-15,O1,Actual
+P03,C4TALENT,OC03,Iniciatives de talent activades,20,16.0,iniciatives,2025-12-15,O2,Actual
+P01,Campus d’Emprenedoria Disruptiva,P01-OUX1,Augment de la cooperació efectiva entre agents,75,58.0,%,2025-12-04,O1,Actual
+P01,Campus d’Emprenedoria Disruptiva,P01-OUX2,Millora de la capacitat de gestió i seguiment,85,69.0,%,2025-12-04,O2,Actual
+P02,Network4Work,P02-OUX1,Augment de la cooperació efectiva entre agents,75,58.0,%,2026-09-19,O1,Actual
+P02,Network4Work,P02-OUX2,Millora de la capacitat de gestió i seguiment,85,69.0,%,2026-09-19,O2,Actual
+P03,C4TALENT,P03-OUX1,Augment de la cooperació efectiva entre agents,75,58.0,%,2025-12-15,O1,Actual
+P03,C4TALENT,P03-OUX2,Millora de la capacitat de gestió i seguiment,85,69.0,%,2025-12-15,O1,Actual

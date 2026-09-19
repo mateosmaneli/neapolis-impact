@@ -1,20 +1,20 @@
-﻿Id_projecte,Nom_projecte,Id_WP,Id_tasca,Nom_tasca,Data_inici_prevista,Data_fi_prevista,Data_fi_real,Hores_planificades,Persones_responsables,Responsable_principal,Dependència,Estat
-P01,Campus d’Emprenedoria Disruptiu,WP1,T1.1,Tasca 1 · Gestió i governança,2025-06-03,2025-06-10,2025-06-10,55,2,Responsable WP1,,Completada
-P01,Campus d’Emprenedoria Disruptiu,WP1,T1.2,Tasca 2 · Gestió i governança,2025-06-14,2025-06-21,2025-06-22,70,2,Responsable WP1,T1.1,Completada
-P01,Campus d’Emprenedoria Disruptiu,WP1,T1.3,Tasca 3 · Gestió i governança,2025-06-26,2025-07-03,2025-07-02,85,2,Responsable WP1,T1.2,Completada
-P01,Campus d’Emprenedoria Disruptiu,WP1,T1.4,Tasca 4 · Gestió i governança,2025-07-07,2025-07-14,2025-07-14,100,2,Responsable WP1,T1.3,Completada
-P01,Campus d’Emprenedoria Disruptiu,WP2,T2.1,Tasca 1 · Diagnosi i planificació,2025-07-19,2025-07-26,2025-07-26,55,3,Responsable WP2,,Completada
-P01,Campus d’Emprenedoria Disruptiu,WP2,T2.2,Tasca 2 · Diagnosi i planificació,2025-07-31,2025-08-07,2025-08-08,70,3,Responsable WP2,T2.1,Completada
-P01,Campus d’Emprenedoria Disruptiu,WP2,T2.3,Tasca 3 · Diagnosi i planificació,2025-08-11,2025-08-18,2025-08-17,85,3,Responsable WP2,T2.2,Completada
-P01,Campus d’Emprenedoria Disruptiu,WP2,T2.4,Tasca 4 · Diagnosi i planificació,2025-08-23,2025-08-30,2025-08-30,100,3,Responsable WP2,T2.3,Completada
-P01,Campus d’Emprenedoria Disruptiu,WP3,T3.1,Tasca 1 · Execució i experimentació,2025-09-04,2025-09-11,2025-09-11,55,1,Responsable WP3,,Completada
-P01,Campus d’Emprenedoria Disruptiu,WP3,T3.2,Tasca 2 · Execució i experimentació,2025-09-15,2025-09-22,2025-09-23,70,1,Responsable WP3,T3.1,Completada
-P01,Campus d’Emprenedoria Disruptiu,WP3,T3.3,Tasca 3 · Execució i experimentació,2025-09-27,2025-10-04,2025-10-03,85,1,Responsable WP3,T3.2,Completada
-P01,Campus d’Emprenedoria Disruptiu,WP3,T3.4,Tasca 4 · Execució i experimentació,2025-10-08,2025-10-15,2025-10-15,100,1,Responsable WP3,T3.3,Completada
-P01,Campus d’Emprenedoria Disruptiu,WP4,T4.1,Tasca 1 · Transferència i tancament,2025-10-20,2025-10-27,2025-10-27,55,2,Responsable WP4,,Completada
-P01,Campus d’Emprenedoria Disruptiu,WP4,T4.2,Tasca 2 · Transferència i tancament,2025-11-01,2025-11-08,2025-11-09,70,2,Responsable WP4,T4.1,Completada
-P01,Campus d’Emprenedoria Disruptiu,WP4,T4.3,Tasca 3 · Transferència i tancament,2025-11-12,2025-11-19,2025-11-18,85,2,Responsable WP4,T4.2,Completada
-P01,Campus d’Emprenedoria Disruptiu,WP4,T4.4,Tasca 4 · Transferència i tancament,2025-11-24,2025-12-01,2025-12-01,100,2,Responsable WP4,T4.3,Completada
+Id_projecte,Nom_projecte,Id_WP,Id_tasca,Nom_tasca,Data_inici_prevista,Data_fi_prevista,Data_fi_real,Hores_planificades,Persones_responsables,Responsable_principal,Dependència,Estat
+P01,Campus d’Emprenedoria Disruptiva,WP1,T1.1,Tasca 1 · Gestió i governança,2025-06-03,2025-06-10,2025-06-10,55,2,Responsable WP1,,Completada
+P01,Campus d’Emprenedoria Disruptiva,WP1,T1.2,Tasca 2 · Gestió i governança,2025-06-14,2025-06-21,2025-06-22,70,2,Responsable WP1,T1.1,Completada
+P01,Campus d’Emprenedoria Disruptiva,WP1,T1.3,Tasca 3 · Gestió i governança,2025-06-26,2025-07-03,2025-07-02,85,2,Responsable WP1,T1.2,Completada
+P01,Campus d’Emprenedoria Disruptiva,WP1,T1.4,Tasca 4 · Gestió i governança,2025-07-07,2025-07-14,2025-07-14,100,2,Responsable WP1,T1.3,Completada
+P01,Campus d’Emprenedoria Disruptiva,WP2,T2.1,Tasca 1 · Diagnosi i planificació,2025-07-19,2025-07-26,2025-07-26,55,3,Responsable WP2,,Completada
+P01,Campus d’Emprenedoria Disruptiva,WP2,T2.2,Tasca 2 · Diagnosi i planificació,2025-07-31,2025-08-07,2025-08-08,70,3,Responsable WP2,T2.1,Completada
+P01,Campus d’Emprenedoria Disruptiva,WP2,T2.3,Tasca 3 · Diagnosi i planificació,2025-08-11,2025-08-18,2025-08-17,85,3,Responsable WP2,T2.2,Completada
+P01,Campus d’Emprenedoria Disruptiva,WP2,T2.4,Tasca 4 · Diagnosi i planificació,2025-08-23,2025-08-30,2025-08-30,100,3,Responsable WP2,T2.3,Completada
+P01,Campus d’Emprenedoria Disruptiva,WP3,T3.1,Tasca 1 · Execució i experimentació,2025-09-04,2025-09-11,2025-09-11,55,1,Responsable WP3,,Completada
+P01,Campus d’Emprenedoria Disruptiva,WP3,T3.2,Tasca 2 · Execució i experimentació,2025-09-15,2025-09-22,2025-09-23,70,1,Responsable WP3,T3.1,Completada
+P01,Campus d’Emprenedoria Disruptiva,WP3,T3.3,Tasca 3 · Execució i experimentació,2025-09-27,2025-10-04,2025-10-03,85,1,Responsable WP3,T3.2,Completada
+P01,Campus d’Emprenedoria Disruptiva,WP3,T3.4,Tasca 4 · Execució i experimentació,2025-10-08,2025-10-15,2025-10-15,100,1,Responsable WP3,T3.3,Completada
+P01,Campus d’Emprenedoria Disruptiva,WP4,T4.1,Tasca 1 · Transferència i tancament,2025-10-20,2025-10-27,2025-10-27,55,2,Responsable WP4,,Completada
+P01,Campus d’Emprenedoria Disruptiva,WP4,T4.2,Tasca 2 · Transferència i tancament,2025-11-01,2025-11-08,2025-11-09,70,2,Responsable WP4,T4.1,Completada
+P01,Campus d’Emprenedoria Disruptiva,WP4,T4.3,Tasca 3 · Transferència i tancament,2025-11-12,2025-11-19,2025-11-18,85,2,Responsable WP4,T4.2,Completada
+P01,Campus d’Emprenedoria Disruptiva,WP4,T4.4,Tasca 4 · Transferència i tancament,2025-11-24,2025-12-01,2025-12-01,100,2,Responsable WP4,T4.3,Completada
 P02,Network4Work,WP1,T1.1,Tasca 1 · Gestió i governança,2025-11-12,2025-12-16,2025-12-16,55,2,Responsable WP1,,Completada
 P02,Network4Work,WP1,T1.2,Tasca 2 · Gestió i governança,2026-01-08,2026-02-11,2026-02-12,70,2,Responsable WP1,T1.1,Completada
 P02,Network4Work,WP1,T1.3,Tasca 3 · Gestió i governança,2026-03-05,2026-04-08,2026-04-07,85,2,Responsable WP1,T1.2,Completada

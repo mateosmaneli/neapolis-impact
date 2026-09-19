@@ -1,16 +1,46 @@
-Id_projecte,Nom_projecte,Id_output,Output,Valor_objectiu,Valor_actual,Unitat,Data_mesura,Id_objectiu
-P01,Campus d’Emprenedoria Disruptiu,OUT01,Startups que completen l’itinerari,6,6,startups,2025-12-04,O1
-P01,Campus d’Emprenedoria Disruptiu,OUT02,Hores de mentoria,120,112,hores,2025-11-30,O1
-P01,Campus d’Emprenedoria Disruptiu,OUT03,Connexions startup-empresa/inversor,30,26,connexions,2025-12-04,O2
-P02,Network4Work,OUT01,Sessions ULG,12,4,sessions,2026-09-19,O1
-P02,Network4Work,OUT02,Trobades transnacionals,6,2,trobades,2026-06-25,O2
-P02,Network4Work,OUT03,Accions locals testades,5,1,accions,2026-09-19,O2
-P03,C4TALENT,OUT01,Trobades transnacionals,6,6,trobades,2025-10-15,O1
-P03,C4TALENT,OUT02,Sessions locals de cocreació,14,14,sessions,2025-09-30,O1
-P03,C4TALENT,OUT03,Pla d’Acció Integrat,1,1,pla,2025-12-15,O3
-P01,Campus d’Emprenedoria Disruptiu,P01-OUX1,Connexions europees formalitzades,20,13,connexions,2025-12-04,O1
-P01,Campus d’Emprenedoria Disruptiu,P01-OUX2,Informes de seguiment i transferència,12,8,informes,2025-11-30,O1
-P02,Network4Work,P02-OUX1,Connexions europees formalitzades,20,13,connexions,2026-09-19,O1
-P02,Network4Work,P02-OUX2,Informes de seguiment i transferència,12,8,informes,2026-06-25,O2
-P03,C4TALENT,P03-OUX1,Connexions europees formalitzades,20,13,connexions,2025-10-15,O1
-P03,C4TALENT,P03-OUX2,Informes de seguiment i transferència,12,8,informes,2025-09-30,O1
+Id_projecte,Nom_projecte,Id_output,Output,Valor_objectiu,Valor_actual,Unitat,Data_mesura,Id_objectiu,Període_històric
+P01,Campus d’Emprenedoria Disruptiva,OUT01,Startups que completen l’itinerari,6,4.3,startups,2023-12-04,O1,T-2
+P01,Campus d’Emprenedoria Disruptiva,OUT02,Hores de mentoria,120,80.6,hores,2023-11-30,O1,T-2
+P01,Campus d’Emprenedoria Disruptiva,OUT03,Connexions startup-empresa/inversor,30,18.7,connexions,2023-12-04,O2,T-2
+P02,Network4Work,OUT01,Sessions ULG,12,2.9,sessions,2024-09-19,O1,T-2
+P02,Network4Work,OUT02,Trobades transnacionals,6,1.4,trobades,2024-06-25,O2,T-2
+P02,Network4Work,OUT03,Accions locals testades,5,0.7,accions,2024-09-19,O2,T-2
+P03,C4TALENT,OUT01,Trobades transnacionals,6,4.3,trobades,2023-10-15,O1,T-2
+P03,C4TALENT,OUT02,Sessions locals de cocreació,14,10.1,sessions,2023-09-30,O1,T-2
+P03,C4TALENT,OUT03,Pla d’Acció Integrat,1,0.7,pla,2023-12-15,O3,T-2
+P01,Campus d’Emprenedoria Disruptiva,P01-OUX1,Connexions europees formalitzades,20,9.4,connexions,2023-12-04,O1,T-2
+P01,Campus d’Emprenedoria Disruptiva,P01-OUX2,Informes de seguiment i transferència,12,5.8,informes,2023-11-30,O1,T-2
+P02,Network4Work,P02-OUX1,Connexions europees formalitzades,20,9.4,connexions,2024-09-19,O1,T-2
+P02,Network4Work,P02-OUX2,Informes de seguiment i transferència,12,5.8,informes,2024-06-25,O2,T-2
+P03,C4TALENT,P03-OUX1,Connexions europees formalitzades,20,9.4,connexions,2023-10-15,O1,T-2
+P03,C4TALENT,P03-OUX2,Informes de seguiment i transferència,12,5.8,informes,2023-09-30,O1,T-2
+P01,Campus d’Emprenedoria Disruptiva,OUT01,Startups que completen l’itinerari,6,5.2,startups,2024-12-04,O1,T-1
+P01,Campus d’Emprenedoria Disruptiva,OUT02,Hores de mentoria,120,96.3,hores,2024-11-30,O1,T-1
+P01,Campus d’Emprenedoria Disruptiva,OUT03,Connexions startup-empresa/inversor,30,22.4,connexions,2024-12-04,O2,T-1
+P02,Network4Work,OUT01,Sessions ULG,12,3.4,sessions,2025-09-19,O1,T-1
+P02,Network4Work,OUT02,Trobades transnacionals,6,1.7,trobades,2025-06-25,O2,T-1
+P02,Network4Work,OUT03,Accions locals testades,5,0.9,accions,2025-09-19,O2,T-1
+P03,C4TALENT,OUT01,Trobades transnacionals,6,5.2,trobades,2024-10-15,O1,T-1
+P03,C4TALENT,OUT02,Sessions locals de cocreació,14,12.0,sessions,2024-09-30,O1,T-1
+P03,C4TALENT,OUT03,Pla d’Acció Integrat,1,0.9,pla,2024-12-15,O3,T-1
+P01,Campus d’Emprenedoria Disruptiva,P01-OUX1,Connexions europees formalitzades,20,11.2,connexions,2024-12-04,O1,T-1
+P01,Campus d’Emprenedoria Disruptiva,P01-OUX2,Informes de seguiment i transferència,12,6.9,informes,2024-11-30,O1,T-1
+P02,Network4Work,P02-OUX1,Connexions europees formalitzades,20,11.2,connexions,2025-09-19,O1,T-1
+P02,Network4Work,P02-OUX2,Informes de seguiment i transferència,12,6.9,informes,2025-06-25,O2,T-1
+P03,C4TALENT,P03-OUX1,Connexions europees formalitzades,20,11.2,connexions,2024-10-15,O1,T-1
+P03,C4TALENT,P03-OUX2,Informes de seguiment i transferència,12,6.9,informes,2024-09-30,O1,T-1
+P01,Campus d’Emprenedoria Disruptiva,OUT01,Startups que completen l’itinerari,6,6.0,startups,2025-12-04,O1,Actual
+P01,Campus d’Emprenedoria Disruptiva,OUT02,Hores de mentoria,120,112.0,hores,2025-11-30,O1,Actual
+P01,Campus d’Emprenedoria Disruptiva,OUT03,Connexions startup-empresa/inversor,30,26.0,connexions,2025-12-04,O2,Actual
+P02,Network4Work,OUT01,Sessions ULG,12,4.0,sessions,2026-09-19,O1,Actual
+P02,Network4Work,OUT02,Trobades transnacionals,6,2.0,trobades,2026-06-25,O2,Actual
+P02,Network4Work,OUT03,Accions locals testades,5,1.0,accions,2026-09-19,O2,Actual
+P03,C4TALENT,OUT01,Trobades transnacionals,6,6.0,trobades,2025-10-15,O1,Actual
+P03,C4TALENT,OUT02,Sessions locals de cocreació,14,14.0,sessions,2025-09-30,O1,Actual
+P03,C4TALENT,OUT03,Pla d’Acció Integrat,1,1.0,pla,2025-12-15,O3,Actual
+P01,Campus d’Emprenedoria Disruptiva,P01-OUX1,Connexions europees formalitzades,20,13.0,connexions,2025-12-04,O1,Actual
+P01,Campus d’Emprenedoria Disruptiva,P01-OUX2,Informes de seguiment i transferència,12,8.0,informes,2025-11-30,O1,Actual
+P02,Network4Work,P02-OUX1,Connexions europees formalitzades,20,13.0,connexions,2026-09-19,O1,Actual
+P02,Network4Work,P02-OUX2,Informes de seguiment i transferència,12,8.0,informes,2026-06-25,O2,Actual
+P03,C4TALENT,P03-OUX1,Connexions europees formalitzades,20,13.0,connexions,2025-10-15,O1,Actual
+P03,C4TALENT,P03-OUX2,Informes de seguiment i transferència,12,8.0,informes,2025-09-30,O1,Actual

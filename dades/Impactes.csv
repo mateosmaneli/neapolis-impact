@@ -1,13 +1,37 @@
-Id_projecte,Nom_projecte,Id_impacte,Impacte,Valor_objectiu,Valor_actual,Unitat,Data_mesura,Tipus_evidència
-P01,Campus d’Emprenedoria Disruptiu,IMP01,Ocupació addicional generada,23,17,FTE,2026-12-04,Contribució
-P01,Campus d’Emprenedoria Disruptiu,IMP02,Creixement agregat de facturació,30,21,%,2026-12-04,Contribució
-P02,Network4Work,IMP01,Millora percebuda de coordinació local,80,48,%,2028-04-30,Contribució
-P02,Network4Work,IMP02,Connexions ocupació-talent persistents,20,7,aliances,2028-04-30,Contribució
-P03,C4TALENT,IMP01,Capacitat local d’atraure/retenir talent,80,74,%,2025-12-31,Contribució
-P03,C4TALENT,IMP02,Accions IAP incorporades a polítiques/programes,10,7,accions,2026-12-31,Contribució
-P01,Campus d’Emprenedoria Disruptiu,P01-IMX1,Ecosistema local més connectat i resilient,80,57,índex,2026-12-04,Contribució
-P01,Campus d’Emprenedoria Disruptiu,P01-IMX2,Major capacitat d’atracció i retenció de talent,75,52,índex,2026-12-04,Contribució
-P02,Network4Work,P02-IMX1,Ecosistema local més connectat i resilient,80,57,índex,2028-04-30,Contribució
-P02,Network4Work,P02-IMX2,Major capacitat d’atracció i retenció de talent,75,52,índex,2028-04-30,Contribució
-P03,C4TALENT,P03-IMX1,Ecosistema local més connectat i resilient,80,57,índex,2025-12-31,Contribució
-P03,C4TALENT,P03-IMX2,Major capacitat d’atracció i retenció de talent,75,52,índex,2026-12-31,Contribució
+Id_projecte,Nom_projecte,Id_impacte,Impacte,Valor_objectiu,Valor_actual,Unitat,Data_mesura,Tipus_evidència,Període_històric
+P01,Campus d’Emprenedoria Disruptiva,IMP01,Ocupació addicional generada,23,12.2,FTE,2024-12-04,Contribució,T-2
+P01,Campus d’Emprenedoria Disruptiva,IMP02,Creixement agregat de facturació,30,15.1,%,2024-12-04,Contribució,T-2
+P02,Network4Work,IMP01,Millora percebuda de coordinació local,80,34.6,%,2026-04-30,Contribució,T-2
+P02,Network4Work,IMP02,Connexions ocupació-talent persistents,20,5.0,aliances,2026-04-30,Contribució,T-2
+P03,C4TALENT,IMP01,Capacitat local d’atraure/retenir talent,80,53.3,%,2023-12-31,Contribució,T-2
+P03,C4TALENT,IMP02,Accions IAP incorporades a polítiques/programes,10,5.0,accions,2024-12-31,Contribució,T-2
+P01,Campus d’Emprenedoria Disruptiva,P01-IMX1,Ecosistema local més connectat i resilient,80,41.0,índex,2024-12-04,Contribució,T-2
+P01,Campus d’Emprenedoria Disruptiva,P01-IMX2,Major capacitat d’atracció i retenció de talent,75,37.4,índex,2024-12-04,Contribució,T-2
+P02,Network4Work,P02-IMX1,Ecosistema local més connectat i resilient,80,41.0,índex,2026-04-30,Contribució,T-2
+P02,Network4Work,P02-IMX2,Major capacitat d’atracció i retenció de talent,75,37.4,índex,2026-04-30,Contribució,T-2
+P03,C4TALENT,P03-IMX1,Ecosistema local més connectat i resilient,80,41.0,índex,2023-12-31,Contribució,T-2
+P03,C4TALENT,P03-IMX2,Major capacitat d’atracció i retenció de talent,75,37.4,índex,2024-12-31,Contribució,T-2
+P01,Campus d’Emprenedoria Disruptiva,IMP01,Ocupació addicional generada,23,14.6,FTE,2025-12-04,Contribució,T-1
+P01,Campus d’Emprenedoria Disruptiva,IMP02,Creixement agregat de facturació,30,18.1,%,2025-12-04,Contribució,T-1
+P02,Network4Work,IMP01,Millora percebuda de coordinació local,80,41.3,%,2027-04-30,Contribució,T-1
+P02,Network4Work,IMP02,Connexions ocupació-talent persistents,20,6.0,aliances,2027-04-30,Contribució,T-1
+P03,C4TALENT,IMP01,Capacitat local d’atraure/retenir talent,80,63.6,%,2024-12-31,Contribució,T-1
+P03,C4TALENT,IMP02,Accions IAP incorporades a polítiques/programes,10,6.0,accions,2025-12-31,Contribució,T-1
+P01,Campus d’Emprenedoria Disruptiva,P01-IMX1,Ecosistema local més connectat i resilient,80,49.0,índex,2025-12-04,Contribució,T-1
+P01,Campus d’Emprenedoria Disruptiva,P01-IMX2,Major capacitat d’atracció i retenció de talent,75,44.7,índex,2025-12-04,Contribució,T-1
+P02,Network4Work,P02-IMX1,Ecosistema local més connectat i resilient,80,49.0,índex,2027-04-30,Contribució,T-1
+P02,Network4Work,P02-IMX2,Major capacitat d’atracció i retenció de talent,75,44.7,índex,2027-04-30,Contribució,T-1
+P03,C4TALENT,P03-IMX1,Ecosistema local més connectat i resilient,80,49.0,índex,2024-12-31,Contribució,T-1
+P03,C4TALENT,P03-IMX2,Major capacitat d’atracció i retenció de talent,75,44.7,índex,2025-12-31,Contribució,T-1
+P01,Campus d’Emprenedoria Disruptiva,IMP01,Ocupació addicional generada,23,17.0,FTE,2026-12-04,Contribució,Actual
+P01,Campus d’Emprenedoria Disruptiva,IMP02,Creixement agregat de facturació,30,21.0,%,2026-12-04,Contribució,Actual
+P02,Network4Work,IMP01,Millora percebuda de coordinació local,80,48.0,%,2028-04-30,Contribució,Actual
+P02,Network4Work,IMP02,Connexions ocupació-talent persistents,20,7.0,aliances,2028-04-30,Contribució,Actual
+P03,C4TALENT,IMP01,Capacitat local d’atraure/retenir talent,80,74.0,%,2025-12-31,Contribució,Actual
+P03,C4TALENT,IMP02,Accions IAP incorporades a polítiques/programes,10,7.0,accions,2026-12-31,Contribució,Actual
+P01,Campus d’Emprenedoria Disruptiva,P01-IMX1,Ecosistema local més connectat i resilient,80,57.0,índex,2026-12-04,Contribució,Actual
+P01,Campus d’Emprenedoria Disruptiva,P01-IMX2,Major capacitat d’atracció i retenció de talent,75,52.0,índex,2026-12-04,Contribució,Actual
+P02,Network4Work,P02-IMX1,Ecosistema local més connectat i resilient,80,57.0,índex,2028-04-30,Contribució,Actual
+P02,Network4Work,P02-IMX2,Major capacitat d’atracció i retenció de talent,75,52.0,índex,2028-04-30,Contribució,Actual
+P03,C4TALENT,P03-IMX1,Ecosistema local més connectat i resilient,80,57.0,índex,2025-12-31,Contribució,Actual
+P03,C4TALENT,P03-IMX2,Major capacitat d’atracció i retenció de talent,75,52.0,índex,2026-12-31,Contribució,Actual

@@ -1,13 +1,37 @@
-Id_projecte,Nom_projecte,Id_hipòtesi,Hipòtesi,Criticitat,Probabilitat_1_5,Impacte_1_5,Mecanisme_verificació,Estat
-P01,Campus d’Emprenedoria Disruptiu,H01,La mentoria respon a necessitats reals,Alta,4,4,Satisfacció i evolució T0-T3,Validada parcialment
-P01,Campus d’Emprenedoria Disruptiu,H02,Les connexions es converteixen en oportunitats,Mitjana,4,5,Seguiment 6/12 mesos,En seguiment
-P02,Network4Work,H01,Els actors mantenen participació sostinguda,Alta,5,4,Assistència i compromisos,En seguiment
-P02,Network4Work,H02,La bona pràctica és transferible a economia blava,Alta,4,5,Proves i feedback,En seguiment
-P03,C4TALENT,H01,Un ecosistema startup fort reté/atrau talent,Alta,4,5,Indicadors de talent,En seguiment
-P03,C4TALENT,H02,Les accions cocreades són assumibles localment,Mitjana,4,3,Compromisos i plans,Validada parcialment
-P01,Campus d’Emprenedoria Disruptiu,P01-HIX1,Els agents mantenen la participació durant tot el cicle del projecte,Alta,4,5,Seguiment de participació,Validada parcialment
-P01,Campus d’Emprenedoria Disruptiu,P01-HIX2,Les connexions generades es mantenen després del finançament,Alta,3,5,Seguiment a 12 mesos,En seguiment
-P02,Network4Work,P02-HIX1,Els agents mantenen la participació durant tot el cicle del projecte,Alta,4,5,Seguiment de participació,En seguiment
-P02,Network4Work,P02-HIX2,Les connexions generades es mantenen després del finançament,Alta,3,5,Seguiment a 12 mesos,En seguiment
-P03,C4TALENT,P03-HIX1,Els agents mantenen la participació durant tot el cicle del projecte,Alta,4,5,Seguiment de participació,En seguiment
-P03,C4TALENT,P03-HIX2,Les connexions generades es mantenen després del finançament,Alta,3,5,Seguiment a 12 mesos,Validada parcialment
+Id_projecte,Nom_projecte,Id_hipòtesi,Hipòtesi,Criticitat,Probabilitat_1_5,Impacte_1_5,Mecanisme_verificació,Estat,Període_històric
+P01,Campus d’Emprenedoria Disruptiva,H01,La mentoria respon a necessitats reals,Alta,5,4,Satisfacció i evolució T0-T3,Validada parcialment,T-2
+P01,Campus d’Emprenedoria Disruptiva,H02,Les connexions es converteixen en oportunitats,Mitjana,5,5,Seguiment 6/12 mesos,En seguiment,T-2
+P02,Network4Work,H01,Els actors mantenen participació sostinguda,Alta,5,4,Assistència i compromisos,En seguiment,T-2
+P02,Network4Work,H02,La bona pràctica és transferible a economia blava,Alta,5,5,Proves i feedback,En seguiment,T-2
+P03,C4TALENT,H01,Un ecosistema startup fort reté/atrau talent,Alta,5,5,Indicadors de talent,En seguiment,T-2
+P03,C4TALENT,H02,Les accions cocreades són assumibles localment,Mitjana,5,3,Compromisos i plans,Validada parcialment,T-2
+P01,Campus d’Emprenedoria Disruptiva,P01-HIX1,Els agents mantenen la participació durant tot el cicle del projecte,Alta,5,5,Seguiment de participació,Validada parcialment,T-2
+P01,Campus d’Emprenedoria Disruptiva,P01-HIX2,Les connexions generades es mantenen després del finançament,Alta,4,5,Seguiment a 12 mesos,En seguiment,T-2
+P02,Network4Work,P02-HIX1,Els agents mantenen la participació durant tot el cicle del projecte,Alta,5,5,Seguiment de participació,En seguiment,T-2
+P02,Network4Work,P02-HIX2,Les connexions generades es mantenen després del finançament,Alta,4,5,Seguiment a 12 mesos,En seguiment,T-2
+P03,C4TALENT,P03-HIX1,Els agents mantenen la participació durant tot el cicle del projecte,Alta,5,5,Seguiment de participació,En seguiment,T-2
+P03,C4TALENT,P03-HIX2,Les connexions generades es mantenen després del finançament,Alta,4,5,Seguiment a 12 mesos,Validada parcialment,T-2
+P01,Campus d’Emprenedoria Disruptiva,H01,La mentoria respon a necessitats reals,Alta,4,4,Satisfacció i evolució T0-T3,Validada parcialment,T-1
+P01,Campus d’Emprenedoria Disruptiva,H02,Les connexions es converteixen en oportunitats,Mitjana,4,5,Seguiment 6/12 mesos,En seguiment,T-1
+P02,Network4Work,H01,Els actors mantenen participació sostinguda,Alta,5,4,Assistència i compromisos,En seguiment,T-1
+P02,Network4Work,H02,La bona pràctica és transferible a economia blava,Alta,4,5,Proves i feedback,En seguiment,T-1
+P03,C4TALENT,H01,Un ecosistema startup fort reté/atrau talent,Alta,4,5,Indicadors de talent,En seguiment,T-1
+P03,C4TALENT,H02,Les accions cocreades són assumibles localment,Mitjana,4,3,Compromisos i plans,Validada parcialment,T-1
+P01,Campus d’Emprenedoria Disruptiva,P01-HIX1,Els agents mantenen la participació durant tot el cicle del projecte,Alta,4,5,Seguiment de participació,Validada parcialment,T-1
+P01,Campus d’Emprenedoria Disruptiva,P01-HIX2,Les connexions generades es mantenen després del finançament,Alta,3,5,Seguiment a 12 mesos,En seguiment,T-1
+P02,Network4Work,P02-HIX1,Els agents mantenen la participació durant tot el cicle del projecte,Alta,4,5,Seguiment de participació,En seguiment,T-1
+P02,Network4Work,P02-HIX2,Les connexions generades es mantenen després del finançament,Alta,3,5,Seguiment a 12 mesos,En seguiment,T-1
+P03,C4TALENT,P03-HIX1,Els agents mantenen la participació durant tot el cicle del projecte,Alta,4,5,Seguiment de participació,En seguiment,T-1
+P03,C4TALENT,P03-HIX2,Les connexions generades es mantenen després del finançament,Alta,3,5,Seguiment a 12 mesos,Validada parcialment,T-1
+P01,Campus d’Emprenedoria Disruptiva,H01,La mentoria respon a necessitats reals,Alta,3,4,Satisfacció i evolució T0-T3,Validada parcialment,Actual
+P01,Campus d’Emprenedoria Disruptiva,H02,Les connexions es converteixen en oportunitats,Mitjana,3,5,Seguiment 6/12 mesos,En seguiment,Actual
+P02,Network4Work,H01,Els actors mantenen participació sostinguda,Alta,4,4,Assistència i compromisos,En seguiment,Actual
+P02,Network4Work,H02,La bona pràctica és transferible a economia blava,Alta,3,5,Proves i feedback,En seguiment,Actual
+P03,C4TALENT,H01,Un ecosistema startup fort reté/atrau talent,Alta,3,5,Indicadors de talent,En seguiment,Actual
+P03,C4TALENT,H02,Les accions cocreades són assumibles localment,Mitjana,3,3,Compromisos i plans,Validada parcialment,Actual
+P01,Campus d’Emprenedoria Disruptiva,P01-HIX1,Els agents mantenen la participació durant tot el cicle del projecte,Alta,3,5,Seguiment de participació,Validada parcialment,Actual
+P01,Campus d’Emprenedoria Disruptiva,P01-HIX2,Les connexions generades es mantenen després del finançament,Alta,2,5,Seguiment a 12 mesos,En seguiment,Actual
+P02,Network4Work,P02-HIX1,Els agents mantenen la participació durant tot el cicle del projecte,Alta,3,5,Seguiment de participació,En seguiment,Actual
+P02,Network4Work,P02-HIX2,Les connexions generades es mantenen després del finançament,Alta,2,5,Seguiment a 12 mesos,En seguiment,Actual
+P03,C4TALENT,P03-HIX1,Els agents mantenen la participació durant tot el cicle del projecte,Alta,3,5,Seguiment de participació,En seguiment,Actual
+P03,C4TALENT,P03-HIX2,Les connexions generades es mantenen després del finançament,Alta,2,5,Seguiment a 12 mesos,Validada parcialment,Actual

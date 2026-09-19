@@ -1,16 +1,46 @@
-Id_projecte,Nom_projecte,Id_retorn,Dimensió,Indicador_retorn,Valor_objectiu,Valor_actual,Unitat,Data_mesura
-P01,Campus d’Emprenedoria Disruptiu,RT01,Ocupació i talent,Nous llocs de treball vinculats al territori,15,11,FTE,2026-12-04
-P01,Campus d’Emprenedoria Disruptiu,RT02,Economia,Despesa/contractació amb proveïdors locals,150000,118000,EUR,2026-12-04
-P01,Campus d’Emprenedoria Disruptiu,RT03,Innovació,Pilots desenvolupats al territori,10,8,pilots,2026-12-04
-P02,Network4Work,RT01,Ecosistema,Aliances locals actives,25,14,aliances,2026-09-19
-P02,Network4Work,RT02,Ocupació i talent,Connexions talent-oportunitats locals,30,12,connexions,2026-09-19
-P02,Network4Work,RT03,Coneixement,Agents formats/intercanvis,40,21,agents,2026-09-19
-P03,C4TALENT,RT01,Ocupació i talent,Iniciatives d’atracció/retenció,20,16,iniciatives,2025-12-31
-P03,C4TALENT,RT02,Ecosistema,Noves aliances o compromisos,25,21,aliances,2025-12-31
-P03,C4TALENT,RT03,Coneixement,Accions de transferència,15,13,accions,2025-12-31
-P01,Campus d’Emprenedoria Disruptiu,P01-REX1,Talent,Talent atret o retingut al territori,20,13,persones,2026-12-04
-P01,Campus d’Emprenedoria Disruptiu,P01-REX2,Ecosistema,Aliances territorials persistents,15,9,aliances,2026-12-04
-P02,Network4Work,P02-REX1,Talent,Talent atret o retingut al territori,20,13,persones,2026-09-19
-P02,Network4Work,P02-REX2,Ecosistema,Aliances territorials persistents,15,9,aliances,2026-09-19
-P03,C4TALENT,P03-REX1,Talent,Talent atret o retingut al territori,20,13,persones,2025-12-31
-P03,C4TALENT,P03-REX2,Ecosistema,Aliances territorials persistents,15,9,aliances,2025-12-31
+Id_projecte,Nom_projecte,Id_retorn,Dimensió,Indicador_retorn,Valor_objectiu,Valor_actual,Unitat,Data_mesura,Període_històric
+P01,Campus d’Emprenedoria Disruptiva,RT01,Ocupació i talent,Nous llocs de treball vinculats al territori,15,7.9,FTE,2024-12-04,T-2
+P01,Campus d’Emprenedoria Disruptiva,RT02,Economia,Despesa/contractació amb proveïdors locals,150000,84960.0,EUR,2024-12-04,T-2
+P01,Campus d’Emprenedoria Disruptiva,RT03,Innovació,Pilots desenvolupats al territori,10,5.8,pilots,2024-12-04,T-2
+P02,Network4Work,RT01,Ecosistema,Aliances locals actives,25,10.1,aliances,2024-09-19,T-2
+P02,Network4Work,RT02,Ocupació i talent,Connexions talent-oportunitats locals,30,8.6,connexions,2024-09-19,T-2
+P02,Network4Work,RT03,Coneixement,Agents formats/intercanvis,40,15.1,agents,2024-09-19,T-2
+P03,C4TALENT,RT01,Ocupació i talent,Iniciatives d’atracció/retenció,20,11.5,iniciatives,2023-12-31,T-2
+P03,C4TALENT,RT02,Ecosistema,Noves aliances o compromisos,25,15.1,aliances,2023-12-31,T-2
+P03,C4TALENT,RT03,Coneixement,Accions de transferència,15,9.4,accions,2023-12-31,T-2
+P01,Campus d’Emprenedoria Disruptiva,P01-REX1,Talent,Talent atret o retingut al territori,20,9.4,persones,2024-12-04,T-2
+P01,Campus d’Emprenedoria Disruptiva,P01-REX2,Ecosistema,Aliances territorials persistents,15,6.5,aliances,2024-12-04,T-2
+P02,Network4Work,P02-REX1,Talent,Talent atret o retingut al territori,20,9.4,persones,2024-09-19,T-2
+P02,Network4Work,P02-REX2,Ecosistema,Aliances territorials persistents,15,6.5,aliances,2024-09-19,T-2
+P03,C4TALENT,P03-REX1,Talent,Talent atret o retingut al territori,20,9.4,persones,2023-12-31,T-2
+P03,C4TALENT,P03-REX2,Ecosistema,Aliances territorials persistents,15,6.5,aliances,2023-12-31,T-2
+P01,Campus d’Emprenedoria Disruptiva,RT01,Ocupació i talent,Nous llocs de treball vinculats al territori,15,9.5,FTE,2025-12-04,T-1
+P01,Campus d’Emprenedoria Disruptiva,RT02,Economia,Despesa/contractació amb proveïdors locals,150000,101480.0,EUR,2025-12-04,T-1
+P01,Campus d’Emprenedoria Disruptiva,RT03,Innovació,Pilots desenvolupats al territori,10,6.9,pilots,2025-12-04,T-1
+P02,Network4Work,RT01,Ecosistema,Aliances locals actives,25,12.0,aliances,2025-09-19,T-1
+P02,Network4Work,RT02,Ocupació i talent,Connexions talent-oportunitats locals,30,10.3,connexions,2025-09-19,T-1
+P02,Network4Work,RT03,Coneixement,Agents formats/intercanvis,40,18.1,agents,2025-09-19,T-1
+P03,C4TALENT,RT01,Ocupació i talent,Iniciatives d’atracció/retenció,20,13.8,iniciatives,2024-12-31,T-1
+P03,C4TALENT,RT02,Ecosistema,Noves aliances o compromisos,25,18.1,aliances,2024-12-31,T-1
+P03,C4TALENT,RT03,Coneixement,Accions de transferència,15,11.2,accions,2024-12-31,T-1
+P01,Campus d’Emprenedoria Disruptiva,P01-REX1,Talent,Talent atret o retingut al territori,20,11.2,persones,2025-12-04,T-1
+P01,Campus d’Emprenedoria Disruptiva,P01-REX2,Ecosistema,Aliances territorials persistents,15,7.7,aliances,2025-12-04,T-1
+P02,Network4Work,P02-REX1,Talent,Talent atret o retingut al territori,20,11.2,persones,2025-09-19,T-1
+P02,Network4Work,P02-REX2,Ecosistema,Aliances territorials persistents,15,7.7,aliances,2025-09-19,T-1
+P03,C4TALENT,P03-REX1,Talent,Talent atret o retingut al territori,20,11.2,persones,2024-12-31,T-1
+P03,C4TALENT,P03-REX2,Ecosistema,Aliances territorials persistents,15,7.7,aliances,2024-12-31,T-1
+P01,Campus d’Emprenedoria Disruptiva,RT01,Ocupació i talent,Nous llocs de treball vinculats al territori,15,11.0,FTE,2026-12-04,Actual
+P01,Campus d’Emprenedoria Disruptiva,RT02,Economia,Despesa/contractació amb proveïdors locals,150000,118000.0,EUR,2026-12-04,Actual
+P01,Campus d’Emprenedoria Disruptiva,RT03,Innovació,Pilots desenvolupats al territori,10,8.0,pilots,2026-12-04,Actual
+P02,Network4Work,RT01,Ecosistema,Aliances locals actives,25,14.0,aliances,2026-09-19,Actual
+P02,Network4Work,RT02,Ocupació i talent,Connexions talent-oportunitats locals,30,12.0,connexions,2026-09-19,Actual
+P02,Network4Work,RT03,Coneixement,Agents formats/intercanvis,40,21.0,agents,2026-09-19,Actual
+P03,C4TALENT,RT01,Ocupació i talent,Iniciatives d’atracció/retenció,20,16.0,iniciatives,2025-12-31,Actual
+P03,C4TALENT,RT02,Ecosistema,Noves aliances o compromisos,25,21.0,aliances,2025-12-31,Actual
+P03,C4TALENT,RT03,Coneixement,Accions de transferència,15,13.0,accions,2025-12-31,Actual
+P01,Campus d’Emprenedoria Disruptiva,P01-REX1,Talent,Talent atret o retingut al territori,20,13.0,persones,2026-12-04,Actual
+P01,Campus d’Emprenedoria Disruptiva,P01-REX2,Ecosistema,Aliances territorials persistents,15,9.0,aliances,2026-12-04,Actual
+P02,Network4Work,P02-REX1,Talent,Talent atret o retingut al territori,20,13.0,persones,2026-09-19,Actual
+P02,Network4Work,P02-REX2,Ecosistema,Aliances territorials persistents,15,9.0,aliances,2026-09-19,Actual
+P03,C4TALENT,P03-REX1,Talent,Talent atret o retingut al territori,20,13.0,persones,2025-12-31,Actual
+P03,C4TALENT,P03-REX2,Ecosistema,Aliances territorials persistents,15,9.0,aliances,2025-12-31,Actual

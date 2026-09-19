@@ -1,12 +1,12 @@
-﻿Id_projecte,Nom_projecte,Id_WP,Id_fita,Nom_fita,Data_prevista,Data_real,Responsable,Estat
-P01,Campus d’Emprenedoria Disruptiu,WP1,M1.1,Fita 1 · Gestió i governança,2025-06-24,2025-06-24,Responsable WP1,Assolida
-P01,Campus d’Emprenedoria Disruptiu,WP1,M1.2,Fita 2 · Gestió i governança,2025-07-17,2025-07-17,Responsable WP1,Assolida
-P01,Campus d’Emprenedoria Disruptiu,WP2,M2.1,Fita 1 · Diagnosi i planificació,2025-08-09,2025-08-09,Responsable WP2,Assolida
-P01,Campus d’Emprenedoria Disruptiu,WP2,M2.2,Fita 2 · Diagnosi i planificació,2025-09-02,2025-09-02,Responsable WP2,Assolida
-P01,Campus d’Emprenedoria Disruptiu,WP3,M3.1,Fita 1 · Execució i experimentació,2025-09-25,2025-09-25,Responsable WP3,Assolida
-P01,Campus d’Emprenedoria Disruptiu,WP3,M3.2,Fita 2 · Execució i experimentació,2025-10-18,2025-10-18,Responsable WP3,Assolida
-P01,Campus d’Emprenedoria Disruptiu,WP4,M4.1,Fita 1 · Transferència i tancament,2025-11-10,2025-11-10,Responsable WP4,Assolida
-P01,Campus d’Emprenedoria Disruptiu,WP4,M4.2,Fita 2 · Transferència i tancament,2025-12-04,2025-12-04,Responsable WP4,Assolida
+Id_projecte,Nom_projecte,Id_WP,Id_fita,Nom_fita,Data_prevista,Data_real,Responsable,Estat
+P01,Campus d’Emprenedoria Disruptiva,WP1,M1.1,Fita 1 · Gestió i governança,2025-06-24,2025-06-24,Responsable WP1,Assolida
+P01,Campus d’Emprenedoria Disruptiva,WP1,M1.2,Fita 2 · Gestió i governança,2025-07-17,2025-07-17,Responsable WP1,Assolida
+P01,Campus d’Emprenedoria Disruptiva,WP2,M2.1,Fita 1 · Diagnosi i planificació,2025-08-09,2025-08-09,Responsable WP2,Assolida
+P01,Campus d’Emprenedoria Disruptiva,WP2,M2.2,Fita 2 · Diagnosi i planificació,2025-09-02,2025-09-02,Responsable WP2,Assolida
+P01,Campus d’Emprenedoria Disruptiva,WP3,M3.1,Fita 1 · Execució i experimentació,2025-09-25,2025-09-25,Responsable WP3,Assolida
+P01,Campus d’Emprenedoria Disruptiva,WP3,M3.2,Fita 2 · Execució i experimentació,2025-10-18,2025-10-18,Responsable WP3,Assolida
+P01,Campus d’Emprenedoria Disruptiva,WP4,M4.1,Fita 1 · Transferència i tancament,2025-11-10,2025-11-10,Responsable WP4,Assolida
+P01,Campus d’Emprenedoria Disruptiva,WP4,M4.2,Fita 2 · Transferència i tancament,2025-12-04,2025-12-04,Responsable WP4,Assolida
 P02,Network4Work,WP1,M1.1,Fita 1 · Gestió i governança,2026-02-22,2026-02-22,Responsable WP1,Assolida
 P02,Network4Work,WP1,M1.2,Fita 2 · Gestió i governança,2026-06-16,2026-06-16,Responsable WP1,Assolida
 P02,Network4Work,WP2,M2.1,Fita 1 · Diagnosi i planificació,2026-10-08,,Responsable WP2,Pendent

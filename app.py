@@ -26,7 +26,7 @@ EMBEDDED_DATA = {
 }
 
 @st.cache_data
-def load_demo_v83(cache_version="v8.3"):
+def load_demo_v85(cache_version="v8.5"):
     # Prefer external CSV files when present; otherwise use the embedded demo data.
     # This makes the Streamlit deployment self-contained even if the /dades folder
     # is not uploaded to GitHub.
@@ -40,15 +40,52 @@ def load_demo_v83(cache_version="v8.3"):
             raw=zlib.decompress(base64.b64decode(EMBEDDED_DATA[n]))
             out[n]=pd.read_csv(io.BytesIO(raw))
     return out
-APP_DATA_VERSION='v8.3'
+APP_DATA_VERSION='v8.5'
 if st.session_state.get('app_data_version') != APP_DATA_VERSION:
-    st.session_state.dades=load_demo_v83().copy()
+    st.session_state.dades=load_demo_v85().copy()
     st.session_state.mode='DEMO · DADES FICTÍCIES'
     st.session_state.app_data_version=APP_DATA_VERSION
     st.session_state.nav='HOME'
 if 'nav' not in st.session_state:
     st.session_state.nav='HOME'
 D=st.session_state.dades
+# Normalització funcional de la V8.5
+for _n,_df in D.items():
+    if isinstance(_df,pd.DataFrame) and 'Nom_projecte' in _df.columns:
+        _df['Nom_projecte']=_df['Nom_projecte'].replace({'Campus d’Emprenedoria Disruptiu':'Campus d’Emprenedoria Disruptiva'})
+# Les startups només formen part del pilot Campus.
+D['Startups']=D['Startups'][D['Startups']['Id_projecte']=='P01'].copy()
+
+# Històric fictici de 3 anys per a les dimensions de la Teoria del Canvi.
+# Manté les dades actuals i hi afegeix dues fotografies anuals anteriors per demostrar evolució temporal.
+def ampliar_historic_tdc(dades):
+    specs={
+      'Inputs':('Quantitat','Data_disponibilitat'), 'Activitats':('Valor_assolit','Data_fi_prevista'),
+      'Objectius':('Valor_actual',None), 'Outputs':('Valor_actual','Data_mesura'),
+      'Outcomes':('Valor_actual','Data_mesura'), 'Impactes':('Valor_actual','Data_mesura'),
+      'Retorn territorial':('Valor_actual','Data_mesura')}
+    for nom,(valor,data_col) in specs.items():
+        base=dades[nom].copy()
+        if 'Període_històric' in base.columns: continue
+        blocs=[]
+        for anys,factor in [(2,.72),(1,.86),(0,1.0)]:
+            x=base.copy(); x['Període_històric']=f'T-{anys}' if anys else 'Actual'
+            if valor in x.columns:
+                num=pd.to_numeric(x[valor],errors='coerce'); x[valor]=np.where(num.notna(),(num*factor).round(1),x[valor])
+            if data_col and data_col in x.columns:
+                dd=pd.to_datetime(x[data_col],errors='coerce'); x[data_col]=(dd-pd.DateOffset(years=anys)).dt.strftime('%Y-%m-%d')
+            blocs.append(x)
+        dades[nom]=pd.concat(blocs,ignore_index=True)
+    # Hipòtesis: tres fotografies anuals amb evolució de probabilitat i estat.
+    base=dades['Hipòtesis'].copy()
+    if 'Període_històric' not in base.columns:
+        blocs=[]
+        for anys,delta in [(2,1),(1,0),(0,-1)]:
+            x=base.copy(); x['Període_històric']=f'T-{anys}' if anys else 'Actual'
+            x['Probabilitat_1_5']=(pd.to_numeric(x['Probabilitat_1_5'],errors='coerce').fillna(3)+delta).clip(1,5)
+            blocs.append(x)
+        dades['Hipòtesis']=pd.concat(blocs,ignore_index=True)
+ampliar_historic_tdc(D)
 
 def dt(df,*cols):
  d=df.copy()
@@ -67,18 +104,19 @@ def card(title,value,desc,delta=''):
 def section(t,s=''): st.markdown(f'<div class="sect"><h2>{t}</h2><p>{s}</p></div>',unsafe_allow_html=True)
 def objective_card(title,subtitle,value,desc):
  st.markdown(f'''<div class="kpi"><div class="kt">{title}</div><div style="font-size:12px;color:#37566b;font-weight:700;margin-top:5px">{subtitle}</div><div class="kv">{value}</div><div class="kx">{desc}</div></div>''',unsafe_allow_html=True)
-def forecast(pid):
- # Robust fallback: never depend on a stale Streamlit session for the historical table.
+def forecast(pid,horizon_days=90):
  h=D.get('Històric_projectes', pd.DataFrame()).copy()
  if h.empty:
-  fresh=load_demo_v83()
-  h=fresh.get('Històric_projectes', pd.DataFrame()).copy()
- if h.empty:
-  return {'risc':50.0,'retard':0.0,'pressupost':0.0,'objectius':0.0}
- h=h[h.Id_projecte==pid].copy(); h['Data_observació']=pd.to_datetime(h['Data_observació']); h=h.sort_values('Data_observació').tail(24); x=np.arange(len(h)); xf=len(h)+3
+  fresh=load_demo_v85(); h=fresh.get('Històric_projectes', pd.DataFrame()).copy()
+ if h.empty: return {'risc':50.0,'retard':0.0,'pressupost':0.0,'objectius':0.0}
+ h=h[h.Id_projecte==pid].copy(); h['Data_observació']=pd.to_datetime(h['Data_observació']); h=h.sort_values('Data_observació').tail(36)
+ x=np.arange(len(h),dtype=float); xf=(len(h)-1)+float(horizon_days)/30.44
  def pred(c):
-  y=pd.to_numeric(h[c],errors='coerce').ffill().fillna(0).values; return float(np.polyval(np.polyfit(x,y,1),xf)) if len(y)>2 else float(y[-1])
- return {'risc':np.clip(pred('Índex_risc'),0,100),'retard':max(0,pred('Retard_mitjà_dies')),'pressupost':pred('Desviació_pressupost_pct'),'objectius':np.clip(pred('Compliment_objectius_pct'),0,100)}
+  y=pd.to_numeric(h[c],errors='coerce').ffill().fillna(0).to_numpy(dtype=float)
+  if len(y)<3: return float(y[-1]) if len(y) else 0.0
+  return float(np.polyval(np.polyfit(x,y,1),xf))
+ return {'risc':float(np.clip(pred('Índex_risc'),0,100)),'retard':max(0.0,pred('Retard_mitjà_dies')),'pressupost':pred('Desviació_pressupost_pct'),'objectius':float(np.clip(pred('Compliment_objectius_pct'),0,100))}
+
 def filtered(name,pid,asof=None):
  d=D[name].copy(); d=d[d.Id_projecte==pid] if 'Id_projecte' in d else d
  if asof:
@@ -101,6 +139,9 @@ def derive(pid,asof):
  budget_plan=float(eco.Pressupost_planificat.sum()); paid=float(eco.Import_pagat.sum()); committed=float(eco.Import_compromès.sum())
  budget_pressure=max(0,(committed/max(budget_plan,1))-.85)
  risk=min(100,max(46,round(45*min(schedule/.25,1)+20*min(overdue/4,1)+15*min(openr/4,1)+12*min(docs/5,1)+8*min(budget_pressure/.15,1))))
+ # Escenari demostratiu: el Campus requereix atenció; Network4Work i C4TALENT evolucionen positivament.
+ if pid=='P01': risk=max(46,min(risk,62))
+ else: risk=min(risk,32)
  status='ALT' if risk>=70 else ('MODERAT' if risk>=40 else 'CONTROLAT')
  return wp,dl,eco,r,dict(risk=risk,status=status,plan=float(wp.plan.mean()) if len(wp) else 0,real=float(wp.real.mean()) if len(wp) else 0,overdue=overdue,openr=openr,docs=docs,budget=paid/max(budget_plan,1),paid=paid,committed=committed,budget_plan=budget_plan)
 
@@ -113,8 +154,12 @@ if st.button('⌂  Pàgina principal',use_container_width=True,key='home_top'): 
 proj=D['Projectes']; pmap=dict(zip(proj.Nom_projecte,proj.Id_projecte)); c1,c2,c3=st.columns([1.5,1,1.3])
 with c1: pname=st.selectbox('Projecte',proj.Nom_projecte.tolist(),index=0); pid=pmap[pname]
 with c2: asof=st.date_input('Data d’anàlisi',value=date.today(),min_value=date(2023,6,1),max_value=date(2028,4,30))
-startup_options=['Totes']+D['Startups'].loc[D['Startups'].Id_projecte==pid,'Nom_startup'].tolist()
-with c3: startup=st.selectbox('Startup',startup_options)
+if pid=='P01':
+ startup_options=['Totes']+D['Startups'].loc[D['Startups'].Id_projecte==pid,'Nom_startup'].tolist()
+ with c3: startup=st.selectbox('Startup',startup_options)
+else:
+ startup='Totes'
+ with c3: st.selectbox('Startup',['No aplicable a aquest projecte'],disabled=True)
 wp,dl,eco,risks,K=derive(pid,asof)
 # navigation helpers
 TDC=['Inputs','Activitats','Outputs','Outcomes','Impactes','Hipòtesis','Retorn territorial']
@@ -122,16 +167,24 @@ TDC=['Inputs','Activitats','Outputs','Outcomes','Impactes','Hipòtesis','Retorn 
 if st.session_state.nav=='HOME':
  section('Quadre de comandaments',f'Visualització de dades a {pd.Timestamp(asof).strftime("%d/%m/%Y")}.')
  left,right=st.columns([1.05,2.35])
+ # El semàfor canvia d'escala quan se selecciona una startup.
+ sem_status,sem_score,sem_desc=K['status'],K['risk'],'Índex explicable de priorització. Integra desviació temporal, lliurables vençuts, riscos oberts, evidències pendents i pressió pressupostària.'
+ if pid=='P01' and startup!='Totes':
+  ss=D['Startups'][(D['Startups'].Id_projecte==pid)&(D['Startups'].Nom_startup==startup)].iloc[0]
+  cap=float(ss['Índex_capacitats_actual']); clients=float(ss['Nous_clients']); inv=float(ss['Inversió_captada_EUR']); jobs=max(0,float(ss['Ocupació_actual'])-float(ss['Ocupació_T0']))
+  sem_score=int(np.clip(round(.45*cap+.15*min(clients/3,1)*100+.20*min(inv/200000,1)*100+.20*min(jobs/2,1)*100),0,100))
+  sem_status='FAVORABLE' if sem_score>=70 else ('ATENCIÓ' if sem_score>=45 else 'CRÍTIC')
+  sem_desc='Scoring de la startup basat en capacitats, tracció comercial, inversió captada i evolució de l’ocupació. Un valor més alt indica una trajectòria més sòlida.'
  with left:
-  color={'ALT':'#ef4444','MODERAT':'#f59e0b','CONTROLAT':'#22c55e'}[K['status']]
-  st.markdown(f'''<div class="risk"><div class="smallnote" style="color:#9fc1d1">PROJECTE SELECCIONAT</div><div class="projectname">{pname}</div><div class="lights"><div class="light {'on' if K['status']=='CONTROLAT' else ''}" style="background:#22c55e;color:#22c55e"></div><div class="light {'on' if K['status']=='MODERAT' else ''}" style="background:#f59e0b;color:#f59e0b"></div><div class="light {'on' if K['status']=='ALT' else ''}" style="background:#ef4444;color:#ef4444"></div></div><div class="rtitle" style="color:{color}">RISC {K['status']} · {K['risk']}/100</div><div class="rsub">Índex explicable de priorització. Integra desviació temporal, lliurables vençuts, riscos oberts, evidències pendents i pressió pressupostària.</div></div>''',unsafe_allow_html=True)
+  color=({'FAVORABLE':'#22c55e','ATENCIÓ':'#f59e0b','CRÍTIC':'#ef4444'} if startup!='Totes' else {'ALT':'#ef4444','MODERAT':'#f59e0b','CONTROLAT':'#22c55e'})[sem_status]
+  st.markdown(f'''<div class="risk"><div class="smallnote" style="color:#9fc1d1">PROJECTE SELECCIONAT</div><div class="projectname">{pname}</div><div class="lights"><div class="light {'on' if sem_status in ['CONTROLAT','FAVORABLE'] else ''}" style="background:#22c55e;color:#22c55e"></div><div class="light {'on' if sem_status in ['MODERAT','ATENCIÓ'] else ''}" style="background:#f59e0b;color:#f59e0b"></div><div class="light {'on' if sem_status in ['ALT','CRÍTIC'] else ''}" style="background:#ef4444;color:#ef4444"></div></div><div class="rtitle" style="color:{color}">{'SCORING' if startup!='Totes' else 'RISC'} {sem_status} · {sem_score}/100</div><div class="rsub">{sem_desc}</div></div>''',unsafe_allow_html=True)
  with right:
   if startup=='Totes':
-   o=filtered('Objectius',pid,asof); cols=st.columns(3)
+   o=filtered('Objectius',pid,asof); o=o[o.Període_històric=='Actual'] if 'Període_històric' in o.columns else o; cols=st.columns(3)
    for i in range(3):
     if i<len(o):
      r=o.iloc[i]; val=f"{r.Valor_actual:g} / {r.Valor_objectiu:g}"; desc=f"{r.Indicador_clau}. Mesura l'avenç de l'objectiu {r.Id_objectiu}: {r.Objectiu}."
-     with cols[i]: objective_card(f'Objectiu {r.Id_objectiu}',r.Objectiu,val,f"Indicador: {r.Indicador_clau}.")
+     with cols[i%3]: objective_card(f'Objectiu {r.Id_objectiu}',r.Objectiu,val,f"Indicador: {r.Indicador_clau}.")
    cols=st.columns(3)
    with cols[0]: card('Progrés real',pct(K['real']),"Proporció ponderada de lliurables completats fins a la data d’anàlisi.",f"Planificat {pct(K['plan'])}")
    with cols[1]: card('Execució pressupostària',pct(K['budget']),"Import pagat respecte del pressupost planificat registrat al sistema.",money(K['paid']))
@@ -145,12 +198,16 @@ if st.session_state.nav=='HOME':
    with cols[0]: card('Ocupació actual',int(s.Ocupació_actual),'Llocs de treball actuals declarats per la startup.',f"T0 {int(s.Ocupació_T0)}")
    with cols[1]: card('Outcome clau',s.Outcome_clau,'Canvi esperat de curt/mitjà termini vinculat a la participació de la startup.')
    with cols[2]: card('Retorn territorial',s.Retorn_territorial_clau,'Dimensió de valor local que es vol verificar i seguir.')
- section('Predicció de futur','Estimacions algorítmiques a 90 dies calculades sobre 36 mesos d’històric fictici.')
- F=forecast(pid); pc=st.columns(4)
- with pc[0]: card('Risc previst a 90 dies',f"{F['risc']:.0f}/100",'Tendència estimada de risc global a partir de l’històric de gestió.')
- with pc[1]: card('Retard mitjà previst',f"{F['retard']:.0f} dies",'Estimació del retard mitjà esperat en fites i lliurables.')
- with pc[2]: card('Desviació pressupostària',f"{F['pressupost']:+.1f}%",'Forecast de desviació entre despesa/compromisos i trajectòria pressupostària.')
- with pc[3]: card('Compliment d’objectius',f"{F['objectius']:.0f}%",'Percentatge estimat d’assoliment dels objectius clau a l’horitzó de 90 dies.')
+ section('Predicció de futur','Projecció calculada a partir de 36 mesos d’històric fictici. Selecciona l’horitzó temporal i els indicadors estimen la situació esperada al final d’aquest període.')
+ horitzons={7:'7 dies',14:'14 dies',30:'1 mes',60:'2 mesos',90:'3 mesos',180:'6 mesos',365:'12 mesos',730:'24 mesos',1095:'36 mesos'}
+ horizon=st.select_slider('Horitzó de predicció',options=list(horitzons.keys()),value=90,format_func=lambda x:horitzons[x])
+ F=forecast(pid,horizon); pc=st.columns(4)
+ def pcard(col,title,value,desc,status):
+  colors={'verd':'#22c55e','groc':'#f59e0b','vermell':'#ef4444'}; col.markdown(f'<div class="kpi" style="border-top:5px solid {colors[status]}"><div class="kt">{title}</div><div class="kv">{value}</div><div class="kx">{desc}</div></div>',unsafe_allow_html=True)
+ pcard(pc[0],'Risc previst',f"{F['risc']:.0f}/100",f"Estimació del risc global a {horitzons[horizon]}.",'verd' if F['risc']<40 else ('groc' if F['risc']<70 else 'vermell'))
+ pcard(pc[1],'Retard mitjà previst',f"{F['retard']:.0f} dies",f"Retard mitjà estimat en fites i lliurables a {horitzons[horizon]}.",'verd' if F['retard']<7 else ('groc' if F['retard']<20 else 'vermell'))
+ pcard(pc[2],'Desviació pressupostària',f"{F['pressupost']:+.1f}%",f"Desviació pressupostària estimada a {horitzons[horizon]}.",'verd' if abs(F['pressupost'])<5 else ('groc' if abs(F['pressupost'])<12 else 'vermell'))
+ pcard(pc[3],'Compliment d’objectius',f"{F['objectius']:.0f}%",f"Assoliment estimat dels objectius a {horitzons[horizon]}.",'verd' if F['objectius']>=80 else ('groc' if F['objectius']>=60 else 'vermell'))
  section('Teoria del Canvi','Selecciona una dimensió per obrir els seus indicadors de seguiment i control.')
  cc=st.columns(4)
  for i,x in enumerate(TDC):
@@ -168,9 +225,10 @@ if st.session_state.nav=='HOME':
   f=go.Figure(); f.add_trace(go.Bar(name='T0',x=['Capacitats','Ocupació'],y=[s['Índex_capacitats_T0'],s.Ocupació_T0])); f.add_trace(go.Bar(name='Actual',x=['Capacitats','Ocupació'],y=[s['Índex_capacitats_actual'],s.Ocupació_actual])); f.update_layout(barmode='group',height=330,margin=dict(l=10,r=10,t=15,b=10)); st.plotly_chart(f,use_container_width=True)
  section('Accés ràpid','Selecciona l’opció d’anàlisi que desitges visualitzar.')
  quick=[('Seguiment del projecte','Calendari, WP, lliurables, fites i tasques.'),('Resultats en startups','Última mesura disponible per startup.'),('Analítica predictiva','Semàfor, causes, escenaris i accions correctores.'),('Finances','Pressupost, compromisos, pagaments, elegibilitat i evidències.'),('Data Hub','Visualitza, filtra, carrega i descarrega les taules de dades.'),('Metodologia','Regles de càlcul, governança i traçabilitat.')]
+ if pid!='P01': quick=[q for q in quick if q[0]!='Resultats en startups']
  cols=st.columns(3)
  for i,(a,b) in enumerate(quick):
-  with cols[i]:
+  with cols[i%3]:
    st.markdown(f'<div class="navbox"><b>{a}</b><div class="smallnote">{b}</div></div>',unsafe_allow_html=True)
    if st.button('Obrir →',key='q'+a,use_container_width=True): goto(a)
 
@@ -215,6 +273,7 @@ elif st.session_state.nav=='Seguiment del projecte':
  fig=go.Figure(); fig.add_trace(go.Bar(name='Planificat',x=wp.Id_WP,y=wp.plan*100)); fig.add_trace(go.Bar(name='Real',x=wp.Id_WP,y=wp.real*100)); fig.update_layout(barmode='group',height=330,yaxis_title='Progrés %'); st.plotly_chart(fig,use_container_width=True)
 
 elif st.session_state.nav=='Resultats en startups':
+ if pid!='P01': st.info('Aquest mòdul només aplica al Campus d’Emprenedoria Disruptiva.'); st.stop()
  section('Resultats en startups','Seguiment individual de capacitats, mercat, inversió, ocupació i retorn territorial.')
  df=filtered('Startups',pid); c=st.columns(4)
  with c[0]: card('Startups',len(df),'Startups vinculades al projecte.')
@@ -247,7 +306,7 @@ elif st.session_state.nav=='Analítica predictiva':
  models[-1]=(models[-1][0],round(100*(1-min(ratios))) if ratios else 0,models[-1][2])
  cols=st.columns(len(models))
  for i,(n,v,d) in enumerate(models):
-  with cols[i]: card(n,f'{v}/100',d)
+  with cols[i%3]: card(n,f'{v}/100',d)
  F=forecast(pid); section('Forecast a 90 dies','Models de regressió lineal entrenats sobre 36 mesos d’històric fictici per detectar tendències i anticipar desviacions.')
  fc=st.columns(4)
  with fc[0]: card('Risc futur',f"{F['risc']:.0f}/100",'Índex de risc projectat.')
@@ -277,10 +336,10 @@ elif st.session_state.nav=='Data Hub':
      if sh in TABLES: st.session_state.dades[sh]=pd.read_excel(up,sheet_name=sh)
    st.session_state.mode='DADES CARREGADES · SESSIÓ'; st.success('Dades carregades.'); st.rerun()
   except Exception as e: st.error(f'No s’han pogut carregar les dades: {e}')
- if st.button('Restablir dades fictícies'): st.session_state.dades=load_demo_v83(); st.session_state.mode='DEMO · DADES FICTÍCIES'; st.rerun()
+ if st.button('Restablir dades fictícies'): st.session_state.dades=load_demo_v85(); st.session_state.mode='DEMO · DADES FICTÍCIES'; st.rerun()
 
 elif st.session_state.nav=='Metodologia':
  section('Metodologia','Regles de càlcul, governança, traçabilitat i límits interpretatius.')
- st.markdown('''<div class="call"><b>1. Teoria del Canvi:</b> estructura Inputs → Activitats → Outputs → Outcomes → Impactes → Retorn territorial, amb hipòtesis explícites i indicadors vinculats als objectius.<br><br><b>2. Motor temporal:</b> la data d’anàlisi reconstrueix la fotografia del projecte. El progrés es calcula a partir de lliurables ponderats i dates previstes/reals; no s’introdueix manualment.<br><br><b>3. Control operatiu:</b> integra WP, tasques, fites, lliurables, càrrega de treball, riscos, responsables, pressupost, pagaments i evidències documentals.<br><br><b>4. Early warning:</b> combina desviació de calendari, venciments, riscos oberts, documentació i pressió pressupostària per prioritzar l’atenció gerencial.<br><br><b>5. Predicció:</b> la demo incorpora 36 mesos d’històric fictici i regressions de tendència a 90 dies per risc, retard, pressupost i compliment d’objectius. En producció, els models s’han de validar amb històric real, mètriques d’error, control de deriva i supervisió humana.<br><br><b>6. Finances i auditoria:</b> control d’elegibilitat, compromisos, pagaments, cofinançament, factura/justificant, evidència d’activitat i traçabilitat per WP.<br><br><b>7. Governança de dades:</b> definicions comunes, responsable de dada, periodicitat, font de verificació, baseline, target i registre de modificacions.<br><br><b>8. Escalabilitat:</b> cada projecte conserva la seva TdC i indicadors específics dins d’un model de dades comú que permet lectura de cartera.<br><br><b>9. Traçabilitat de la demo:</b> les dades públiques verificades s’identifiquen a Projectes; els valors de gestió, històrics i prediccions són ficticis i tenen finalitat demostrativa.</div>''',unsafe_allow_html=True)
+ st.markdown('''<div class="call"><b>1. Teoria del Canvi:</b> estructura Inputs → Activitats → Outputs → Outcomes → Impactes → Retorn territorial, amb hipòtesis explícites i indicadors vinculats als objectius.<br><br><b>2. Motor temporal:</b> la data d’anàlisi reconstrueix la fotografia del projecte. El progrés es calcula a partir de lliurables ponderats i dates previstes/reals; no s’introdueix manualment.<br><br><b>3. Control operatiu:</b> integra WP, tasques, fites, lliurables, càrrega de treball, riscos, responsables, pressupost, pagaments i evidències documentals.<br><br><b>4. Early warning:</b> combina desviació de calendari, venciments, riscos oberts, documentació i pressió pressupostària per prioritzar l’atenció gerencial.<br><br><b>5. Predicció:</b> la demo incorpora 36 mesos d’històric fictici i regressions de tendència amb horitzó seleccionable entre 7 dies i 36 mesos per risc, retard, pressupost i compliment d’objectius. En producció, els models s’han de validar amb històric real, mètriques d’error, control de deriva i supervisió humana.<br><br><b>6. Finances i auditoria:</b> control d’elegibilitat, compromisos, pagaments, cofinançament, factura/justificant, evidència d’activitat i traçabilitat per WP.<br><br><b>7. Governança de dades:</b> definicions comunes, responsable de dada, periodicitat, font de verificació, baseline, target i registre de modificacions.<br><br><b>8. Escalabilitat:</b> cada projecte conserva la seva TdC i indicadors específics dins d’un model de dades comú que permet lectura de cartera.<br><br><b>9. Traçabilitat de la demo:</b> les dades públiques verificades s’identifiquen a Projectes; els valors de gestió, històrics i prediccions són ficticis i tenen finalitat demostrativa.</div>''',unsafe_allow_html=True)
  st.markdown('### Fonts públiques utilitzades')
  for _,r in D['Projectes'].iterrows(): st.markdown(f"**{r.Nom_projecte}:** {r.Font_publica}")
