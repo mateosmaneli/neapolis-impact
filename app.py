@@ -62,9 +62,9 @@ D['Startups']=D['Startups'][D['Startups']['Id_projecte']=='P01'].copy()
 _demo_delays={'D1.1':4,'D1.2':8,'D1.3':12,'D2.1':7,'D2.2':15,'D2.3':21,
               'D3.1':10,'D3.2':18,'D3.3':28,'D4.1':14,'D4.2':25,'D4.3':35}
 _mask=D['Deliverables']['Id_projecte'].eq('P01')
-_prev=pd.to_datetime(D.loc[_mask,'Data_prevista'],errors='coerce')
-_delay=D.loc[_mask,'Id_lliurable'].map(_demo_delays).fillna(0)
-D.loc[_mask,'Data_real']=(_prev+pd.to_timedelta(_delay,unit='D')).dt.strftime('%Y-%m-%d')
+_prev=pd.to_datetime(D['Deliverables'].loc[_mask,'Data_prevista'],errors='coerce')
+_delay=D['Deliverables'].loc[_mask,'Id_lliurable'].map(_demo_delays).fillna(0)
+D['Deliverables'].loc[_mask,'Data_real']=(_prev+pd.to_timedelta(_delay,unit='D')).dt.strftime('%Y-%m-%d')
 
 # Històric fictici de 3 anys per a les dimensions de la Teoria del Canvi.
 # Manté les dades actuals i hi afegeix dues fotografies anuals anteriors per demostrar evolució temporal.
