@@ -77,7 +77,7 @@ def forecast(pid):
   return {'risc':50.0,'retard':0.0,'pressupost':0.0,'objectius':0.0}
  h=h[h.Id_projecte==pid].copy(); h['Data_observació']=pd.to_datetime(h['Data_observació']); h=h.sort_values('Data_observació').tail(24); x=np.arange(len(h)); xf=len(h)+3
  def pred(c):
-  y=pd.to_numeric(h[c],errors='coerce').fillna(method='ffill').fillna(0).values; return float(np.polyval(np.polyfit(x,y,1),xf)) if len(y)>2 else float(y[-1])
+  y=pd.to_numeric(h[c],errors='coerce').ffill().fillna(0).values; return float(np.polyval(np.polyfit(x,y,1),xf)) if len(y)>2 else float(y[-1])
  return {'risc':np.clip(pred('Índex_risc'),0,100),'retard':max(0,pred('Retard_mitjà_dies')),'pressupost':pred('Desviació_pressupost_pct'),'objectius':np.clip(pred('Compliment_objectius_pct'),0,100)}
 def filtered(name,pid,asof=None):
  d=D[name].copy(); d=d[d.Id_projecte==pid] if 'Id_projecte' in d else d
