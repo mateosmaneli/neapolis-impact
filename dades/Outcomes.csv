@@ -1,4 +1,4 @@
-﻿Id_projecte,Nom_projecte,Id_outcome,Outcome,Valor_objectiu,Valor_actual,Unitat,Data_mesura,Id_objectiu
+Id_projecte,Nom_projecte,Id_outcome,Outcome,Valor_objectiu,Valor_actual,Unitat,Data_mesura,Id_objectiu
 P01,Campus d’Emprenedoria Disruptiu,OC01,Startups amb model validat,80,72,%,2025-12-04,O1
 P01,Campus d’Emprenedoria Disruptiu,OC02,Startups amb nous clients o pilots,65,58,%,2025-12-04,O2
 P01,Campus d’Emprenedoria Disruptiu,OC03,Inversió privada mobilitzada,1500000,1100000,EUR,2026-06-30,O2
@@ -8,3 +8,9 @@ P02,Network4Work,OC03,Oportunitats ocupacionals/formatives connectades,30,12,con
 P03,C4TALENT,OC01,Accions preparades per implementació,100,92,%,2025-12-15,O1
 P03,C4TALENT,OC02,Agents amb millor coordinació,75,71,%,2025-12-15,O1
 P03,C4TALENT,OC03,Iniciatives de talent activades,20,16,iniciatives,2025-12-15,O2
+P01,Campus d’Emprenedoria Disruptiu,P01-OUX1,Augment de la cooperació efectiva entre agents,75,58,%,2025-12-04,O1
+P01,Campus d’Emprenedoria Disruptiu,P01-OUX2,Millora de la capacitat de gestió i seguiment,85,69,%,2025-12-04,O2
+P02,Network4Work,P02-OUX1,Augment de la cooperació efectiva entre agents,75,58,%,2026-09-19,O1
+P02,Network4Work,P02-OUX2,Millora de la capacitat de gestió i seguiment,85,69,%,2026-09-19,O2
+P03,C4TALENT,P03-OUX1,Augment de la cooperació efectiva entre agents,75,58,%,2025-12-15,O1
+P03,C4TALENT,P03-OUX2,Millora de la capacitat de gestió i seguiment,85,69,%,2025-12-15,O1

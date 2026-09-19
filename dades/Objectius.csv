@@ -1,4 +1,4 @@
-﻿Id_projecte,Nom_projecte,Id_objectiu,Objectiu,Tipus_objectiu,Prioritat,Valor_objectiu,Valor_actual,Indicador_clau
+Id_projecte,Nom_projecte,Id_objectiu,Objectiu,Tipus_objectiu,Prioritat,Valor_objectiu,Valor_actual,Indicador_clau
 P01,Campus d’Emprenedoria Disruptiu,O1,Reforçar capacitats empresarials i d’innovació,Específic,1,100,78,% startups amb millora
 P01,Campus d’Emprenedoria Disruptiu,O2,"Facilitar validació, mercat, inversió i connexions",Específic,2,70,62,% startups amb oportunitat validada
 P01,Campus d’Emprenedoria Disruptiu,O3,Generar retorn territorial mesurable,Impacte,3,75,67,% startups amb retorn verificat
@@ -8,3 +8,9 @@ P02,Network4Work,O3,Millorar connexió talent-ocupació-economia blava,Impacte,3
 P03,C4TALENT,O1,Crear un ecosistema més favorable a empreses i startups,Específic,1,100,92,% accions IAP definides
 P03,C4TALENT,O2,Atraure i retenir talent jove,Impacte,2,20,16,iniciatives/connexions
 P03,C4TALENT,O3,Disposar d’un Pla d’Acció Integrat local,Específic,3,1,1,IAP finalitzat
+P01,Campus d’Emprenedoria Disruptiu,P01-OBX1,Reforçar la cooperació europea i la transferència de coneixement,Estratègic,1,80,61,Percentatge de connexions europees activades
+P01,Campus d’Emprenedoria Disruptiu,P01-OBX2,"Millorar la capacitat de gestió, seguiment i rendició de comptes",Gestió,2,95,78,Percentatge de fites i evidències en termini
+P02,Network4Work,P02-OBX1,Reforçar la cooperació europea i la transferència de coneixement,Estratègic,1,80,61,Percentatge de connexions europees activades
+P02,Network4Work,P02-OBX2,"Millorar la capacitat de gestió, seguiment i rendició de comptes",Gestió,2,95,78,Percentatge de fites i evidències en termini
+P03,C4TALENT,P03-OBX1,Reforçar la cooperació europea i la transferència de coneixement,Estratègic,1,80,61,Percentatge de connexions europees activades
+P03,C4TALENT,P03-OBX2,"Millorar la capacitat de gestió, seguiment i rendició de comptes",Gestió,2,95,78,Percentatge de fites i evidències en termini

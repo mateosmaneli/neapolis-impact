@@ -1,4 +1,4 @@
-﻿Id_projecte,Nom_projecte,Id_retorn,Dimensió,Indicador_retorn,Valor_objectiu,Valor_actual,Unitat,Data_mesura
+Id_projecte,Nom_projecte,Id_retorn,Dimensió,Indicador_retorn,Valor_objectiu,Valor_actual,Unitat,Data_mesura
 P01,Campus d’Emprenedoria Disruptiu,RT01,Ocupació i talent,Nous llocs de treball vinculats al territori,15,11,FTE,2026-12-04
 P01,Campus d’Emprenedoria Disruptiu,RT02,Economia,Despesa/contractació amb proveïdors locals,150000,118000,EUR,2026-12-04
 P01,Campus d’Emprenedoria Disruptiu,RT03,Innovació,Pilots desenvolupats al territori,10,8,pilots,2026-12-04
@@ -8,3 +8,9 @@ P02,Network4Work,RT03,Coneixement,Agents formats/intercanvis,40,21,agents,2026-0
 P03,C4TALENT,RT01,Ocupació i talent,Iniciatives d’atracció/retenció,20,16,iniciatives,2025-12-31
 P03,C4TALENT,RT02,Ecosistema,Noves aliances o compromisos,25,21,aliances,2025-12-31
 P03,C4TALENT,RT03,Coneixement,Accions de transferència,15,13,accions,2025-12-31
+P01,Campus d’Emprenedoria Disruptiu,P01-REX1,Talent,Talent atret o retingut al territori,20,13,persones,2026-12-04
+P01,Campus d’Emprenedoria Disruptiu,P01-REX2,Ecosistema,Aliances territorials persistents,15,9,aliances,2026-12-04
+P02,Network4Work,P02-REX1,Talent,Talent atret o retingut al territori,20,13,persones,2026-09-19
+P02,Network4Work,P02-REX2,Ecosistema,Aliances territorials persistents,15,9,aliances,2026-09-19
+P03,C4TALENT,P03-REX1,Talent,Talent atret o retingut al territori,20,13,persones,2025-12-31
+P03,C4TALENT,P03-REX2,Ecosistema,Aliances territorials persistents,15,9,aliances,2025-12-31
