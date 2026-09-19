@@ -26,7 +26,7 @@ EMBEDDED_DATA = {
 }
 
 @st.cache_data
-def load_demo_v85(cache_version="v8.5"):
+def load_demo_v87(cache_version="v8.7"):
     # Prefer external CSV files when present; otherwise use the embedded demo data.
     # This makes the Streamlit deployment self-contained even if the /dades folder
     # is not uploaded to GitHub.
@@ -40,9 +40,9 @@ def load_demo_v85(cache_version="v8.5"):
             raw=zlib.decompress(base64.b64decode(EMBEDDED_DATA[n]))
             out[n]=pd.read_csv(io.BytesIO(raw))
     return out
-APP_DATA_VERSION='v8.5'
+APP_DATA_VERSION='v8.7'
 if st.session_state.get('app_data_version') != APP_DATA_VERSION:
-    st.session_state.dades=load_demo_v85().copy()
+    st.session_state.dades=load_demo_v87().copy()
     st.session_state.mode='DEMO · DADES FICTÍCIES'
     st.session_state.app_data_version=APP_DATA_VERSION
     st.session_state.nav='HOME'
@@ -55,6 +55,16 @@ for _n,_df in D.items():
         _df['Nom_projecte']=_df['Nom_projecte'].replace({'Campus d’Emprenedoria Disruptiu':'Campus d’Emprenedoria Disruptiva'})
 # Les startups només formen part del pilot Campus.
 D['Startups']=D['Startups'][D['Startups']['Id_projecte']=='P01'].copy()
+
+# Escenari temporal fictici del Campus: desviacions visibles entre planificació i execució real.
+# Les dates reals es deriven de la data prevista + retard per lliurable, de manera que
+# la trajectòria mostra una bretxa realista i acaba convergint quan es completa el projecte.
+_demo_delays={'D1.1':4,'D1.2':8,'D1.3':12,'D2.1':7,'D2.2':15,'D2.3':21,
+              'D3.1':10,'D3.2':18,'D3.3':28,'D4.1':14,'D4.2':25,'D4.3':35}
+_mask=D['Deliverables']['Id_projecte'].eq('P01')
+_prev=pd.to_datetime(D.loc[_mask,'Data_prevista'],errors='coerce')
+_delay=D.loc[_mask,'Id_lliurable'].map(_demo_delays).fillna(0)
+D.loc[_mask,'Data_real']=(_prev+pd.to_timedelta(_delay,unit='D')).dt.strftime('%Y-%m-%d')
 
 # Històric fictici de 3 anys per a les dimensions de la Teoria del Canvi.
 # Manté les dades actuals i hi afegeix dues fotografies anuals anteriors per demostrar evolució temporal.
@@ -177,7 +187,8 @@ wp,dl,eco,risks,K=derive(pid,asof)
 TDC=['Inputs','Activitats','Outputs','Outcomes','Impactes','Hipòtesis','Retorn territorial']
 
 if st.session_state.nav=='HOME':
- section('Quadre de comandaments',f'Visualització de dades a {pd.Timestamp(asof).strftime("%d/%m/%Y")}.')
+ context_nom = startup if (pid=='P01' and startup!='Totes') else pname
+ section(f'Quadre de comandaments · {context_nom}',f'Visualització de dades a {pd.Timestamp(asof).strftime("%d/%m/%Y")}.')
  left,right=st.columns([1.05,2.35])
  # El semàfor canvia d'escala quan se selecciona una startup.
  sem_status,sem_score,sem_desc=K['status'],K['risk'],'Índex explicable de priorització. Integra desviació temporal, lliurables vençuts, riscos oberts, evidències pendents i pressió pressupostària.'
@@ -220,22 +231,22 @@ if st.session_state.nav=='HOME':
  pcard(pc[1],'Retard mitjà previst',f"{F['retard']:.0f} dies",f"Retard mitjà estimat en fites i lliurables a {horitzons[horizon]}.",'verd' if F['retard']<7 else ('groc' if F['retard']<20 else 'vermell'))
  pcard(pc[2],'Desviació pressupostària',f"{F['pressupost']:+.1f}%",f"Desviació pressupostària estimada a {horitzons[horizon]}.",'verd' if abs(F['pressupost'])<5 else ('groc' if abs(F['pressupost'])<12 else 'vermell'))
  pcard(pc[3],'Compliment d’objectius',f"{F['objectius']:.0f}%",f"Assoliment estimat dels objectius a {horitzons[horizon]}.",'verd' if F['objectius']>=80 else ('groc' if F['objectius']>=60 else 'vermell'))
- section('Teoria del Canvi','Selecciona una dimensió per obrir els seus indicadors de seguiment i control.')
+ section(f'Teoria del Canvi · {pname}','Selecciona una dimensió per obrir els seus indicadors de seguiment i control.')
  cc=st.columns(4)
  for i,x in enumerate(TDC):
   with cc[i%4]:
    if st.button(x,use_container_width=True,key='tdc'+x): goto(x)
  if startup=='Totes':
-  section('Trajectòria del projecte','Progrés planificat vs progrés real calculat a partir dels lliurables i les seves dates.')
+  section(f'Trajectòria del projecte · {pname}','Progrés planificat vs progrés real calculat a partir dels lliurables i les seves dates.')
   p=proj[proj.Id_projecte==pid].iloc[0]; start=pd.to_datetime(p.Data_inici); end=min(pd.Timestamp(asof),pd.to_datetime(p.Data_fi)); dates=list(pd.date_range(start,end,freq='MS'))+[pd.Timestamp(asof)]; hist=[]
   for dte in sorted(set(dates)):
    _,_,_,_,kk=derive(pid,dte.date()); hist.append([dte,100*kk['plan'],100*kk['real']])
   hh=pd.DataFrame(hist,columns=['Data','Planificat','Real']); fig=go.Figure(); fig.add_trace(go.Scatter(x=hh.Data,y=hh.Planificat,name='Planificat',mode='lines')); fig.add_trace(go.Scatter(x=hh.Data,y=hh.Real,name='Real',mode='lines+markers')); fig.update_layout(height=330,margin=dict(l=10,r=10,t=15,b=10),yaxis_title='Progrés %',legend_orientation='h'); st.plotly_chart(fig,use_container_width=True)
  else:
-  section('Evolució de la startup','Comparació entre línia de base i situació actual dels indicadors de capacitat i ocupació.')
+  section(f'Evolució de la startup · {startup}','Comparació entre línia de base i situació actual dels indicadors de capacitat i ocupació.')
   s=D['Startups'][(D['Startups'].Id_projecte==pid)&(D['Startups'].Nom_startup==startup)].iloc[0]
   f=go.Figure(); f.add_trace(go.Bar(name='T0',x=['Capacitats','Ocupació'],y=[s['Índex_capacitats_T0'],s.Ocupació_T0])); f.add_trace(go.Bar(name='Actual',x=['Capacitats','Ocupació'],y=[s['Índex_capacitats_actual'],s.Ocupació_actual])); f.update_layout(barmode='group',height=330,margin=dict(l=10,r=10,t=15,b=10)); st.plotly_chart(f,use_container_width=True)
- section('Accés ràpid','Selecciona l’opció d’anàlisi que desitges visualitzar.')
+ section(f'Accés ràpid · {context_nom}','Selecciona l’opció d’anàlisi que desitges visualitzar.')
  quick=[('Seguiment del projecte','Calendari, WP, lliurables, fites i tasques.'),('Resultats en startups','Última mesura disponible per startup.'),('Analítica predictiva','Semàfor, causes, escenaris i accions correctores.'),('Finances','Pressupost, compromisos, pagaments, elegibilitat i evidències.'),('Data Hub','Visualitza, filtra, carrega i descarrega les taules de dades.'),('Metodologia','Regles de càlcul, governança i traçabilitat.')]
  if pid!='P01': quick=[q for q in quick if q[0]!='Resultats en startups']
  cols=st.columns(3)
